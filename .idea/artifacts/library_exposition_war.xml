@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="library-exposition:war">
+    <output-path>$PROJECT_DIR$/library-exposition/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>library-exposition</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="library-exposition.war">
+      <element id="artifact" artifact-name="library-exposition:war exploded" />
+    </root>
+  </artifact>
+</component>

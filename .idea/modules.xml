@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Projet_7_SPRING_MVC_V2.iml" filepath="$PROJECT_DIR$/Projet_7_SPRING_MVC_V2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/library-business/library-business.iml" filepath="$PROJECT_DIR$/library-business/library-business.iml" />
+      <module fileurl="file://$PROJECT_DIR$/library-consumer/library-consumer.iml" filepath="$PROJECT_DIR$/library-consumer/library-consumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/library-exposition/library-exposition.iml" filepath="$PROJECT_DIR$/library-exposition/library-exposition.iml" />
+      <module fileurl="file://$PROJECT_DIR$/library-model/library-model.iml" filepath="$PROJECT_DIR$/library-model/library-model.iml" />
+    </modules>
+  </component>
+</project>
