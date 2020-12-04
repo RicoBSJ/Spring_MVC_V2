@@ -15,9 +15,17 @@
     <bytecodeTargetLevel>
       <module name="library-business" target="1.5" />
       <module name="library-consumer" target="1.5" />
-      <module name="library-exposition" target="1.7" />
+      <module name="library-exposition" target="1.8" />
       <module name="library-model" target="1.5" />
       <module name="Projet_7_SPRING_MVC_V2" target="1.5" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="library-business" options="" />
+      <module name="library-consumer" options="" />
+      <module name="library-exposition" options="" />
+      <module name="library-model" options="" />
+    </option>
   </component>
 </project>
