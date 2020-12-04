@@ -10,20 +10,15 @@
     </properties>
     <root id="root">
       <element id="directory" name="WEB-INF">
-        <element id="directory" name="classes">
-          <element id="module-output" name="library-exposition" />
-        </element>
         <element id="directory" name="lib">
-          <element id="archive" name="library-business-1.0-SNAPSHOT.jar">
-            <element id="module-output" name="library-business" />
-          </element>
           <element id="archive" name="library-consumer-1.0-SNAPSHOT.jar">
             <element id="module-output" name="library-consumer" />
           </element>
+          <element id="archive" name="library-business-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="library-business" />
+          </element>
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-web:2.3.5.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter:2.3.5.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot:2.3.5.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-autoconfigure:2.3.5.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-logging:2.3.5.RELEASE" />
           <element id="library" level="project" name="Maven: ch.qos.logback:logback-classic:1.2.3" />
           <element id="library" level="project" name="Maven: ch.qos.logback:logback-core:1.2.3" />
@@ -63,7 +58,7 @@
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/library-exposition/target/library-exposition/META-INF/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="library-exposition/web/Web" />
+      <element id="javaee-facet-resources" facet="library-consumer/web/Web" />
     </root>
   </artifact>
 </component>
