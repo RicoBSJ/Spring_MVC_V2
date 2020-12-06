@@ -5,8 +5,10 @@
   Time: 23:09
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
     <meta charset="utf-8"/>
@@ -24,48 +26,23 @@
         <fieldset>
             <legend>Liste des livres</legend>
             <%--<c:if test="${!empty sessionScope.sessionUtilisateur}">--%>
-            <table>
+            <table >
                 <tr>
                     <th>Titre</th>
                     <th>Quantité</th>
                     <th>Année</th>
                     <th>Auteur</th>
-                    <th>Category</th>
+                    <th>Catégorie</th>
                     <th>Edition</th>
                 </tr>
-                <c:forEach items="${ books }" var="books">
-                    <tr class="${boucle.index % 2 == 0 ? 'pair' : 'impair'}">
-                        <td><c:out value="${ book.title }"></c:out></td>
-                        <td><c:out value="${ book.quantity }"></c:out></td>
-                        <td><c:out value="${ book.yearBook }"></c:out></td>
-                        <td><c:out value="${ book.bookAuthor.lastName }"></c:out></td>
-                        <td><c:out value="${ book.bookCategory.nameCategory }"></c:out></td>
-                        <td><c:out value="${ book.bookEdition.nameEdition }"></c:out></td>
-
-                            <%--<td><c:if test="${message.statut == null }">
-                                <form action="accepterDemande" method="post">
-                                    <input type="hidden" value="${ message.topo.id }" name="idTopo">
-                                    <input type="hidden" value="${ message.id }" name="id">
-                                    <input type="submit" name="tag" value="Accepter la demande de réservation"/>
-                                </form>
-                                <form action="refuserDemande" method="post">
-                                    <input type="hidden" value="${ message.topo.id }" name="idTopo">
-                                    <input type="hidden" value="${ message.id }" name="id">
-                                    <input type="submit" name="tag" value="Refuser la demande de réservation"/>
-                                </form></c:if>
-                            </td>
-                            <td>
-                                <c:if test="${message.statut == null}">
-                                    <p>En attente</p>
-                                </c:if>
-                                <c:if test="${message.statut == true}">
-                                    <p>Acceptée</p>
-                                </c:if>
-                            </td>
-                            <td><c:if test="${message.statut == true}">
-                                <c:out value="${ message.emetteur.email }"></c:out>
-                            </c:if>
-                            </td>--%>
+                <c:forEach var="book" items="${book}">
+                    <tr>
+                        <td>${book.title}</td>
+                        <td>${book.quantity}</td>
+                        <td>${book.yearBook}</td>
+                        <td>${book.bookAuthor.lastName}</td>
+                        <td>${book.bookCategory.nameCategory}</td>
+                        <td>${book.bookEdition.nameEdition}</td>
                     </tr>
                 </c:forEach>
             </table>
