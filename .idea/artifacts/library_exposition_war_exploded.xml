@@ -42,6 +42,7 @@
           <element id="library" level="project" name="Maven: org.glassfish:jakarta.el:3.0.3" />
           <element id="library" level="project" name="Maven: org.apache.tomcat.embed:tomcat-embed-websocket:9.0.39" />
           <element id="library" level="project" name="Maven: javax.servlet:jstl:1.2" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-tx:5.3.1" />
           <element id="archive" name="library-model-1.0-SNAPSHOT.jar">
             <element id="module-output" name="library-model" />
           </element>
