@@ -35,14 +35,14 @@
                     <th>Catégorie</th>
                     <th>Edition</th>
                 </tr>
-                <c:forEach var="book" items="${book}">
+                <c:forEach var="books" items="${books}">
                     <tr>
-                        <td>${book.title}</td>
-                        <td>${book.quantity}</td>
-                        <td>${book.yearBook}</td>
-                        <td>${book.bookAuthor.lastName}</td>
-                        <td>${book.bookCategory.nameCategory}</td>
-                        <td>${book.bookEdition.nameEdition}</td>
+                        <td>${books.title}</td>
+                        <td>${books.quantity}</td>
+                        <td>${books.yearBook}</td>
+                        <td>${books.bookAuthor.lastName}</td>
+                        <td>${books.bookCategory.nameCategory}</td>
+                        <td>${books.bookEdition.nameEdition}</td>
                     </tr>
                 </c:forEach>
             </table>

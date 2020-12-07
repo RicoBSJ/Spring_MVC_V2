@@ -1,2 +1,3 @@
-com/aubrun/eric/projet7/springmvc/business/config/WebConfig.class
-com/aubrun/eric/projet7/springmvc/business/config/MainWebAppInitializer.class
+com\aubrun\eric\projet7\springmvc\business\config\MainWebAppInitializer.class
+com\aubrun\eric\projet7\springmvc\business\config\WebConfig.class
+com\aubrun\eric\projet7\springmvc\business\service\BookService.class

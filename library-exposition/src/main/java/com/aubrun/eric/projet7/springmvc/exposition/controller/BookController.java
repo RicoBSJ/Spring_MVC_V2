@@ -19,11 +19,8 @@ public class BookController {
     @RequestMapping(value = "/book", method = RequestMethod.GET)
     public String printAllBooks(ModelMap modelMap) {
 
-        // add attribute to load modelMap
-        modelMap.addAttribute("message",
-                "Hello World and Welcome to Spring MVC!");
         Books books = bookService.findAll().getBody();
-        // return the name of the file to be loaded "hello_world.jsp"
+        modelMap.addAttribute("books" , books);
         return "book";
     }
 

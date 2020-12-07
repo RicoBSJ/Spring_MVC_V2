@@ -8,7 +8,6 @@
         <artifactId>Projet_7_SPRING_MVC_V2</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <groupId>com.aubrun.eric.projet7.springmvc</groupId>
     <artifactId>library-consumer</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>library-consumer</name>
