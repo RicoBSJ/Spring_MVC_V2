@@ -16,11 +16,11 @@ public class AuthorController {
         this.authorService = authorService;
     }
 
-    @RequestMapping(value = "/author", method = RequestMethod.GET)
-    public String printAllAuthors(ModelMap modelMap) {
+    @RequestMapping(value = {"/author","/getAllAuthor"}, method = RequestMethod.GET)
+    public String printAllAuthors(ModelMap model) {
 
         Authors authors = authorService.findAuthors().getBody();
-        modelMap.addAttribute("authors" , authors);
-        return "author";
+        model.addAttribute("authors" , authors);
+        return "/author";
     }
 }

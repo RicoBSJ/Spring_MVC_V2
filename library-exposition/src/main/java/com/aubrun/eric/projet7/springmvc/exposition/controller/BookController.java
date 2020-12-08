@@ -15,12 +15,12 @@ public class BookController {
         this.bookService = bookService;
     }
 
-    @RequestMapping(path = {"/book"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/book","/getAllBook"}, method = RequestMethod.GET)
     public String printAllBooks(ModelMap modelMap) {
 
         Books books = bookService.findBooks().getBody();
         modelMap.addAttribute("books" , books);
-        return "book";
+        return "/book";
     }
 
     /*@RequestBody("/book")
