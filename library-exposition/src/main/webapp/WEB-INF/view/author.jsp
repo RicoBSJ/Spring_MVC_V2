@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: ricobsj
-  Date: 05/12/2020
-  Time: 23:09
+  Date: 08/12/2020
+  Time: 00:11
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8"%>
@@ -17,32 +17,24 @@
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
           crossorigin="anonymous">
     <link type="text/css" rel="stylesheet"/>
-    <title>Liste des livres</title>
+    <title>Liste des auteurs</title>
 </head>
 <body>
 <div class="container">
     <%--<c:import url="/include/menu.jsp"></c:import>--%>
     <div id="corps">
         <fieldset>
-            <legend>Liste des livres</legend>
+            <legend>Liste des auteurs</legend>
             <%--<c:if test="${!empty sessionScope.sessionUtilisateur}">--%>
             <table >
                 <tr>
-                    <th>Titre</th>
-                    <th>Quantité</th>
-                    <th>Année</th>
-                    <th>Auteur</th>
-                    <th>Catégorie</th>
-                    <th>Edition</th>
+                    <th>Prénom</th>
+                    <th>Nom</th>
                 </tr>
-                <c:forEach var="book" items="${books}">
+                <c:forEach var="author" items="${authors}">
                     <tr class="table">
-                        <td>${book.title}</td>
-                        <td>${book.quantity}</td>
-                        <td>${book.yearBook}</td>
-                        <td>${book.bookAuthor.lastName}</td>
-                        <td>${book.bookCategory.nameCategory}</td>
-                        <td>${book.bookEdition.nameEdition}</td>
+                        <td>${author.firstName}</td>
+                        <td>${author.lastName}</td>
                     </tr>
                 </c:forEach>
             </table>

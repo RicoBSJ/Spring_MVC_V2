@@ -16,7 +16,7 @@ public class BookService {
         this.bookConsumer = bookConsumer;
     }
 
-    public ResponseEntity<Books> findAll() {
+    public ResponseEntity<Books> findBooks() {
 
         return bookConsumer.findAllBooks();
     }
