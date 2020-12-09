@@ -14,31 +14,8 @@
 </head>
 <body>
 <div id="menu" class="container">
-	<%--<header class="row">
-		<div id="titre_principal">
-			<div id="logo">
-				<img src="<c:url value=" "/> "
-					alt="Logo des amis de l'escalade" class="img-fluid"/><br>
-			</div>
-		</div>--%>
 		<nav>
 		<ul class="nav justify-content-center">
-			<%--<c:if test="${empty sessionScope.sessionUtilisateur}">
-  			<li class="nav-item">
-    			<a class="nav-link active" href="<c:url value="/rechercheSite" />">Recherche site</a>
-  			</li>
-  			<li class="nav-item">
-    			<a class="nav-link" href="<c:url value="/inscription" />">Inscription</a>
-  			</li>
-  			<li class="nav-item">
-    			<a class="nav-link" href="<c:url value="/connexion" />">Connexion</a>
-  			</li>--%>
-  			<%--</c:if>
-  			<c:if test="${!empty sessionScope.sessionUtilisateur}">
-				<li class="nav-item">${sessionScope.sessionUtilisateur.prenom} ${sessionScope.sessionUtilisateur.nom}</li>
-			<c:if test="${sessionScope.sessionUtilisateur.membre == true}">
-				<li class="nav-item"><font color="red">Membre officiel</font></li>
-			</c:if>--%>
   			<li class="nav-item">
     			<a class="nav-link" href="<c:url value="./author" />">Liste des auteurs</a>
   			</li>
@@ -46,12 +23,13 @@
     			<a class="nav-link" href="<c:url value="./book" />">Liste des livres</a>
   			</li>
 			<li class="nav-item">
+				<a class="nav-link" href="<c:url value="./user" />">Liste des utilisateurs</a>
+			</li>
+			<li class="nav-item">
 				<a class="nav-link" href="<c:url value=" " />">Recherche de livres</a>
 			</li>
-  			<%--</c:if>--%>
 		</ul>
 		</nav>
-	<%--</header>--%>
 </div>
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
 		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"

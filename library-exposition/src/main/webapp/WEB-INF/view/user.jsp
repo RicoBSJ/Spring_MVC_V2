@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: ricobsj
-  Date: 05/12/2020
-  Time: 23:09
+  Date: 09/12/2020
+  Time: 18:50
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8"%>
@@ -18,31 +18,23 @@
           crossorigin="anonymous">
     <link type="text/css" rel="stylesheet"
           href="<c:url value="../include/style.css" />" />
-    <title>Liste des livres</title>
+    <title>Liste des utilisateurs</title>
 </head>
 <body>
 <div class="container">
     <div id="corps">
         <fieldset>
-            <legend>Liste des livres</legend>
+            <legend>Liste des utilisateurs</legend>
             <%--<c:if test="${!empty sessionScope.sessionUtilisateur}">--%>
             <table >
                 <tr>
-                    <th>Titre</th>
-                    <th>Quantité</th>
-                    <th>Année</th>
-                    <th>Auteur</th>
-                    <th>Catégorie</th>
-                    <th>Edition</th>
+                    <th>Nom</th>
+                    <th>email</th>
                 </tr>
-                <c:forEach var="book" items="${books}">
+                <c:forEach var="userAccount" items="${usersAccount}">
                     <tr class="table">
-                        <td>${book.title}</td>
-                        <td>${book.quantity}</td>
-                        <td>${book.yearBook}</td>
-                        <td>${book.bookAuthor.lastName}</td>
-                        <td>${book.bookCategory.nameCategory}</td>
-                        <td>${book.bookEdition.nameEdition}</td>
+                        <td>${userAccount.username}</td>
+                        <td>${userAccount.email}</td>
                     </tr>
                 </c:forEach>
             </table>
@@ -50,7 +42,6 @@
         </fieldset>
     </div>
 </div>
-</body>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
             integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
@@ -63,4 +54,5 @@
             src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
             crossorigin="anonymous"></script>
+</body>
 </html>

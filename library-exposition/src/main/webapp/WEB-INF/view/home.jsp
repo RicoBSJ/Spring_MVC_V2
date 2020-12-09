@@ -18,34 +18,12 @@
           crossorigin="anonymous">
     <link type="text/css" rel="stylesheet"
           href="<c:url value="./include/style.css" />" />
-    <title>Liste des livres</title>
+    <title>Page d'accueil de la bibliothèque</title>
 </head>
 <body>
     <div class="container">
     <c:import url="../include/menu.jsp"></c:import>
             <h1>Page d'accueil</h1>
-            <%--<c:if test="${!empty sessionScope.sessionUtilisateur}">--%>
-            <%--<table >
-                <tr>
-                    <th>Titre</th>
-                    <th>Quantité</th>
-                    <th>Année</th>
-                    <th>Auteur</th>
-                    <th>Catégorie</th>
-                    <th>Edition</th>
-                </tr>
-                <c:forEach var="book" items="${books}">
-                    <tr class="table">
-                        <td>${book.title}</td>
-                        <td>${book.quantity}</td>
-                        <td>${book.yearBook}</td>
-                        <td>${book.bookAuthor.lastName}</td>
-                        <td>${book.bookCategory.nameCategory}</td>
-                        <td>${book.bookEdition.nameEdition}</td>
-                    </tr>
-                </c:forEach>
-            </table>--%>
-            <%--</c:if>--%>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"

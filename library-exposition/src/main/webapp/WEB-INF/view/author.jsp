@@ -16,12 +16,12 @@
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
           crossorigin="anonymous">
-    <link type="text/css" rel="stylesheet"/>
+    <link type="text/css" rel="stylesheet"
+          href="<c:url value="../include/style.css" />" />
     <title>Liste des auteurs</title>
 </head>
 <body>
 <div class="container">
-    <%--<c:import url="/include/menu.jsp"></c:import>--%>
     <div id="corps">
         <fieldset>
             <legend>Liste des auteurs</legend>
@@ -41,6 +41,8 @@
             <%--</c:if>--%>
         </fieldset>
     </div>
+</div>
+</body>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
             integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
@@ -53,5 +55,4 @@
             src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
             crossorigin="anonymous"></script>
-</body>
 </html>
