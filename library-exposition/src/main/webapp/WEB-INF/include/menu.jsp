@@ -40,10 +40,10 @@
 				<li class="nav-item"><font color="red">Membre officiel</font></li>
 			</c:if>--%>
   			<li class="nav-item">
-    			<a class="nav-link" href="<c:url value=" " />">Liste des auteurs</a>
+    			<a class="nav-link" href="<c:url value="./author" />">Liste des auteurs</a>
   			</li>
   			<li class="nav-item">
-    			<a class="nav-link" href="<c:url value=" " />">Liste des livres</a>
+    			<a class="nav-link" href="<c:url value="./book" />">Liste des livres</a>
   			</li>
 			<li class="nav-item">
 				<a class="nav-link" href="<c:url value=" " />">Recherche de livres</a>
