@@ -16,15 +16,14 @@
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
           crossorigin="anonymous">
-    <link type="text/css" rel="stylesheet"/>
+    <link type="text/css" rel="stylesheet"
+          href="<c:url value="./include/style.css" />" />
     <title>Liste des livres</title>
 </head>
 <body>
-<div class="container">
-    <%--<c:import url="/include/menu.jsp"></c:import>--%>
-    <div id="corps">
-        <fieldset>
-            <legend>Page d'accueil</legend>
+    <div class="container">
+    <c:import url="../include/menu.jsp"></c:import>
+            <h1>Page d'accueil</h1>
             <%--<c:if test="${!empty sessionScope.sessionUtilisateur}">--%>
             <%--<table >
                 <tr>
@@ -47,7 +46,6 @@
                 </c:forEach>
             </table>--%>
             <%--</c:if>--%>
-        </fieldset>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
