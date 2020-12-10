@@ -21,4 +21,9 @@ public class BookService {
 
         return bookConsumer.findAllBooks();
     }
+
+    public ResponseEntity<SearchBooks> bookResponseEntity(){
+
+        return bookConsumer.searchBook();
+    }
 }

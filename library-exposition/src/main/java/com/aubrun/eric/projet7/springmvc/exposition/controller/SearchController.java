@@ -1,19 +1,15 @@
 package com.aubrun.eric.projet7.springmvc.exposition.controller;
 
-import com.aubrun.eric.projet7.springmvc.business.service.SearchService;
-import com.aubrun.eric.projet7.springmvc.model.SearchBooks;
+import com.aubrun.eric.projet7.springmvc.business.service.BookService;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 @Controller
 public class SearchController {
 
-    private final SearchService searchService;
+    private final BookService bookService;
 
-    public SearchController(SearchService searchService) {
-        this.searchService = searchService;
+    public SearchController(BookService bookService) {
+        this.bookService = bookService;
     }
 
     /*@PostMapping("/search")
