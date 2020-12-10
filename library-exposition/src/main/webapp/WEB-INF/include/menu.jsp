@@ -32,7 +32,7 @@
 					<a class="nav-link" href="<c:url value="./user" />">Liste des utilisateurs</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="<c:url value="./search" />">Recherche de livres</a>
+					<a class="nav-link" href="<c:url value="./book/search" />">Recherche de livres</a>
 				</li>
 			</ul>
 		</div>

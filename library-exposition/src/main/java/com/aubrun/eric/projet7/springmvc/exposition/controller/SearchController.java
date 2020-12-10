@@ -1,9 +1,17 @@
 package com.aubrun.eric.projet7.springmvc.exposition.controller;
 
 import com.aubrun.eric.projet7.springmvc.business.service.BookService;
+import com.aubrun.eric.projet7.springmvc.model.SearchBook;
+import com.aubrun.eric.projet7.springmvc.model.SearchBooks;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.validation.Valid;
 
 @Controller
+@RequestMapping ("/book")
 public class SearchController {
 
     private final BookService bookService;
@@ -12,21 +20,11 @@ public class SearchController {
         this.bookService = bookService;
     }
 
-    /*@PostMapping("/search")
-    public String searchBook(ModelMap modelMap) {
+    @PostMapping(value = "/search")
+    public SearchBooks searchBook(@Valid @RequestBody SearchBook searchBook) {
 
-        SearchBooks searchBooks = searchService.bookResponseEntity().getBody();
-        modelMap.addAttribute("searchBooks" , searchBooks);
-        return "/search";
+        SearchBooks searchBooks = bookService.bookResponseEntity().getBody();
+        /*searchBooks.add(searchBook.getSearchBookTitle().getClass());*/
+        return null;
     }
-
-    @PostMapping("/congratulations")
-    public Manager assignToManager(@RequestBody Employee emp) {
-        String name = emp.getName();
-        int yearsWorked = emp.getYearsWorked();
-        String message = "Congratulations, " + name + "! You have been working here for " + yearsWorked + ".";
-        Manager manager = new Manager();
-        manager.setEmployee(emp.getName()); // now this employee has been assigned to this manager
-        return manager;
-    }*/
 }
