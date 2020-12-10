@@ -2,6 +2,7 @@ package com.aubrun.eric.projet7.springmvc.business.service;
 
 import com.aubrun.eric.projet7.springmvc.consumer.BookConsumer;
 import com.aubrun.eric.projet7.springmvc.model.Books;
+import com.aubrun.eric.projet7.springmvc.model.SearchBooks;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

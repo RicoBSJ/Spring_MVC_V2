@@ -7,8 +7,6 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
     <meta charset="utf-8"/>
@@ -21,12 +19,13 @@
     <title>Liste des livres</title>
 </head>
 <body>
-<div class="container">
-    <div id="corps">
-        <fieldset>
-            <legend>Liste des livres</legend>
-            <%--<c:if test="${!empty sessionScope.sessionUtilisateur}">--%>
-            <table >
+
+    <div class="container">
+            <h1>Liste des livres</h1>
+                <p>
+                    <a href="<c:url value="/"/>">Retour à l'accueil</a>
+                </p>
+            <table class="table">
                 <tr>
                     <th>Titre</th>
                     <th>Quantité</th>
@@ -46,11 +45,7 @@
                     </tr>
                 </c:forEach>
             </table>
-            <%--</c:if>--%>
-        </fieldset>
     </div>
-</div>
-</body>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
             integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
@@ -63,4 +58,5 @@
             src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
             crossorigin="anonymous"></script>
+</body>
 </html>

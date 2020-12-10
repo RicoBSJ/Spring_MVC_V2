@@ -21,12 +21,12 @@
     <title>Liste des utilisateurs</title>
 </head>
 <body>
-<div class="container">
-    <div id="corps">
-        <fieldset>
-            <legend>Liste des utilisateurs</legend>
-            <%--<c:if test="${!empty sessionScope.sessionUtilisateur}">--%>
-            <table >
+    <div class="container">
+            <h1>Liste des utilisateurs</h1>
+                <p>
+                    <a href="<c:url value="/"/>">Retour à l'accueil</a>
+                </p>
+            <table class="table">
                 <tr>
                     <th>Nom</th>
                     <th>email</th>
@@ -38,10 +38,7 @@
                     </tr>
                 </c:forEach>
             </table>
-            <%--</c:if>--%>
-        </fieldset>
     </div>
-</div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
             integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"

@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
-  User: AUBRUNE
-  Date: 08/12/2020
-  Time: 15:22
+  User: ricobsj
+  Date: 10/12/2020
+  Time: 00:19
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8"%>
@@ -16,13 +16,34 @@
           crossorigin="anonymous">
     <link type="text/css" rel="stylesheet"
           href="<c:url value="./include/style.css" />" />
-    <title>Page d'accueil de la bibliothèque</title>
+    <title>Recherche de livre</title>
 </head>
 <body>
-    <div class="container">
-        <c:import url="../include/menu.jsp"></c:import>
-            <h1>Page d'accueil</h1>
-    </div>
+<form>
+        <h1>Recherche de livre</h1>
+            <p>
+                <a href="<c:url value="/"/>">Retour à l'accueil</a>
+            </p>
+        <p>Vous pouvez sélectionner vos critères de recherche via ce formulaire.</p>
+
+        <div class="form-group">
+            <label for="titre">Recherche de livre par titre</label>
+            <input type="text" class="form-control" id="titre" placeholder="Entrer le titre">
+        </div>
+        <div class="form-group">
+            <label for="auteur">Recherche de livre par auteur</label>
+            <input type="text" class="form-control" id="auteur" placeholder="Entrer l'auteur">
+        </div>
+        <div class="form-group">
+            <label for="edition">Recherche de livre par édition</label>
+            <input type="text" class="form-control" id="edition" placeholder="Entrer l'édition">
+        </div>
+        <div class="form-group">
+            <label for="date">Recherche de livre par date</label>
+            <input type="text" class="form-control" id="date" placeholder="Entrer la date">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+</form>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
             integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
             crossorigin="anonymous"></script>

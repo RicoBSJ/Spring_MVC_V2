@@ -22,10 +22,4 @@ public class BookController {
         modelMap.addAttribute("books" , books);
         return "/book";
     }
-
-    /*@RequestBody("/book")
-    	    public String addItem(@RequestParam("book") String name) {
-	        // ...
-	        return "itemDetail";
-	    }*/
 }
