@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 public class SearchController {
@@ -18,7 +19,7 @@ public class SearchController {
         this.bookService = bookService;
     }
 
-    @PostMapping(value = "/book/search")
+    /*@PostMapping(value = "/book/search")
     public SearchBooks searchBooks(@Valid @RequestBody SearchBook searchBook) {
 
         SearchBooks searchBooks = bookService.bookResponseEntity().getBody();
@@ -26,6 +27,19 @@ public class SearchController {
         searchBook.setSearchBookAuthorLastName(searchBook.getSearchBookAuthorLastName());
         searchBook.setSearchBookPublishingHouse(searchBook.getSearchBookPublishingHouse());
         searchBook.setSearchBookReleaseDate(searchBook.getSearchBookReleaseDate());
+        searchBooks.add(searchBook);
+        return searchBooks;
+    }*/
+
+    @PostMapping(value = "/book/search/")
+    private SearchBooks searchBooks(@RequestBody SearchBook searchBook) {
+
+        SearchBooks searchBooks = bookService.bookResponseEntity().getBody();
+        searchBook.getSearchBookTitle();
+        searchBook.getSearchBookAuthorLastName();
+        searchBook.getSearchBookPublishingHouse();
+        searchBook.getSearchBookReleaseDate();
+        assert searchBooks != null;
         searchBooks.add(searchBook);
         return searchBooks;
     }
