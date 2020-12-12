@@ -15,11 +15,11 @@
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
           crossorigin="anonymous">
     <link type="text/css" rel="stylesheet"
-          href="<c:url value="./include/style.css" />" />
+          href="<c:url value="../include/style.css" />" />
     <title>Recherche de livre</title>
 </head>
 <body>
-<form>
+<form method="post">
         <h1>Recherche de livre</h1>
             <p>
                 <a href="<c:url value="/"/>">Retour à l'accueil</a>
@@ -28,19 +28,19 @@
 
         <div class="form-group">
             <label for="titre">Recherche de livre par titre</label>
-            <input type="text" class="form-control" id="titre" placeholder="Entrer le titre">
+            <input type="text" class="form-control" id="titre" value="<c:out value="${searchBook.searchBookTitle}"/>" placeholder="Entrer le titre">
         </div>
         <div class="form-group">
             <label for="auteur">Recherche de livre par auteur</label>
-            <input type="text" class="form-control" id="auteur" placeholder="Entrer l'auteur">
+            <input type="text" class="form-control" id="auteur" value="<c:out value="${searchBook.searchBookAuthorName}"/>" placeholder="Entrer l'auteur">
         </div>
         <div class="form-group">
             <label for="edition">Recherche de livre par édition</label>
-            <input type="text" class="form-control" id="edition" placeholder="Entrer l'édition">
+            <input type="text" class="form-control" id="edition" value="<c:out value="${searchBook.searchBookPublishingHouse}"/>" placeholder="Entrer l'édition">
         </div>
         <div class="form-group">
             <label for="date">Recherche de livre par date</label>
-            <input type="text" class="form-control" id="date" placeholder="Entrer la date">
+            <input type="text" class="form-control" id="date" value="<c:out value="${searchBook.searchBookReleaseDate}"/>" placeholder="Entrer la date">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
 </form>

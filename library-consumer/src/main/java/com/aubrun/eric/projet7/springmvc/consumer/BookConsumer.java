@@ -1,7 +1,7 @@
 package com.aubrun.eric.projet7.springmvc.consumer;
 
 import com.aubrun.eric.projet7.springmvc.model.Books;
-import com.aubrun.eric.projet7.springmvc.model.SearchBooks;
+import com.aubrun.eric.projet7.springmvc.model.SearchBook;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
@@ -19,7 +19,7 @@ public class BookConsumer {
         return restTemplate.getForEntity("http://localhost:8081/biblio-api/books/", Books.class);
     }
 
-    public ResponseEntity<SearchBooks> searchBook(){
-        return restTemplate.getForEntity("http://localhost:8081/biblio-api/books/search/", SearchBooks.class);
+    public ResponseEntity<SearchBook> searchBook(){
+        return restTemplate.getForEntity("http://localhost:8081/biblio-api/books/search/", SearchBook.class);
     }
 }

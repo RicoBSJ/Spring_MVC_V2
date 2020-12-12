@@ -2,7 +2,7 @@ package com.aubrun.eric.projet7.springmvc.business.service;
 
 import com.aubrun.eric.projet7.springmvc.consumer.BookConsumer;
 import com.aubrun.eric.projet7.springmvc.model.Books;
-import com.aubrun.eric.projet7.springmvc.model.SearchBooks;
+import com.aubrun.eric.projet7.springmvc.model.SearchBook;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,7 +22,7 @@ public class BookService {
         return bookConsumer.findAllBooks();
     }
 
-    public ResponseEntity<SearchBooks> bookResponseEntity(){
+    public ResponseEntity<SearchBook> bookResponseEntity(){
 
         return bookConsumer.searchBook();
     }

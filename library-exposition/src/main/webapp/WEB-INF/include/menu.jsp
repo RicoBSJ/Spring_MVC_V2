@@ -29,9 +29,6 @@
 					<a class="nav-link" href="<c:url value="./book" />">Liste des livres</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="<c:url value="./user" />">Liste des utilisateurs</a>
-				</li>
-				<li class="nav-item">
 					<a class="nav-link" href="<c:url value="./book/search" />">Recherche de livres</a>
 				</li>
 			</ul>
