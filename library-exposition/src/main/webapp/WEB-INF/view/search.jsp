@@ -21,7 +21,8 @@
 </head>
 <body>
         <c:import url="../include/menu.jsp"></c:import>
-        <form:form modelAttribute="searchBook" action="searchBook" method="post">
+        <%--<form:form modelAttribute="searchBook" action="searchBook" method="post">--%>
+        <form:form action="searchBook" method="post">
             <br/><p>Vous pouvez sélectionner vos critères de recherche via ce formulaire.</p>
 
             <div class="form-group row">
