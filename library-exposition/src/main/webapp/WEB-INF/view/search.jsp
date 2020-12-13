@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <html>
 <head>
     <meta charset="utf-8"/>
@@ -19,31 +20,33 @@
     <title>Recherche de livre</title>
 </head>
 <body>
-<form method="post">
-        <h1>Recherche de livre</h1>
-            <p>
-                <a href="<c:url value="/"/>">Retour à l'accueil</a>
-            </p>
-        <p>Vous pouvez sélectionner vos critères de recherche via ce formulaire.</p>
+        <c:import url="../include/menu.jsp"></c:import>
+        <form:form modelAttribute="searchBook" action="searchBook" method="post">
+            <br/><p>Vous pouvez sélectionner vos critères de recherche via ce formulaire.</p>
 
-        <div class="form-group">
-            <label for="titre">Recherche de livre par titre</label>
-            <input type="text" class="form-control" id="titre" value="<c:out value="${searchBook.searchBookTitle}"/>" placeholder="Entrer le titre">
-        </div>
-        <div class="form-group">
-            <label for="auteur">Recherche de livre par auteur</label>
-            <input type="text" class="form-control" id="auteur" value="<c:out value="${searchBook.searchBookAuthorName}"/>" placeholder="Entrer l'auteur">
-        </div>
-        <div class="form-group">
-            <label for="edition">Recherche de livre par édition</label>
-            <input type="text" class="form-control" id="edition" value="<c:out value="${searchBook.searchBookPublishingHouse}"/>" placeholder="Entrer l'édition">
-        </div>
-        <div class="form-group">
-            <label for="date">Recherche de livre par date</label>
-            <input type="text" class="form-control" id="date" value="<c:out value="${searchBook.searchBookReleaseDate}"/>" placeholder="Entrer la date">
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+            <div class="form-group row">
+                <div class="col-sm-6">
+                    <form:label path="titre">Recherche de livre par titre</form:label>
+                    <form:input path="titre" placeholder="Entrer le titre"/>
+                </div>
+                <div class="col-sm-6">
+                    <form:label path="auteur">Recherche de livre par auteur</form:label>
+                    <form:input path="auteur" placeholder="Entrer l'auteur"/>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-6">
+                    <form:label path="edition">Recherche de livre par édition</form:label>
+                    <form:input path="edition" placeholder="Entrer l'édition"/>
+                </div>
+                <div class="col-sm-6">
+                    <form:label path="date">Recherche de livre par date</form:label>
+                    <form:input path="date" placeholder="Entrer la date"/>
+                </div>
+            </div>
+            <input type="submit" value="Valider">
+        </form:form>
+    </div>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
             integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
             crossorigin="anonymous"></script>
