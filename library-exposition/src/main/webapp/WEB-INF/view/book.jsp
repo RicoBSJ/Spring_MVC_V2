@@ -19,7 +19,6 @@
     <title>Liste des livres</title>
 </head>
 <body>
-
     <div class="container">
             <h1>Liste des livres</h1>
                 <p>

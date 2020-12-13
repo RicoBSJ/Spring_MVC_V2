@@ -15,7 +15,7 @@
 <body>
 <div id="menu" class="container">
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="#">MENU</a>
+		<a class="navbar-brand" href="#">Rico's Library</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
@@ -23,13 +23,10 @@
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item active">
-					<a class="nav-link" href="<c:url value="./author" />">Liste des auteurs</a>
+					<a class="nav-link" href="<c:url value="./author" />">Connexion</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="<c:url value="./book" />">Liste des livres</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="<c:url value="./book/search" />">Recherche de livres</a>
+					<a class="nav-link" href="<c:url value="./book" />">Inscription</a>
 				</li>
 			</ul>
 		</div>
