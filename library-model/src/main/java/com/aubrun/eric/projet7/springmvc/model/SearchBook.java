@@ -1,8 +1,5 @@
 package com.aubrun.eric.projet7.springmvc.model;
 
-import javax.persistence.Entity;
-
-@Entity
 public class SearchBook {
 
     private Integer searchBookId;
