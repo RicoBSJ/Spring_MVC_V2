@@ -28,6 +28,9 @@
 				<li class="nav-item">
 					<a class="nav-link" href="<c:url value="./book" />">Inscription</a>
 				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="<c:url value="./searchBookForm" />">Recherche</a>
+				</li>
 			</ul>
 		</div>
 	</nav>

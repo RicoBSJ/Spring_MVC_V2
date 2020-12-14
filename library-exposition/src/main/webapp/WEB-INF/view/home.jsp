@@ -21,37 +21,11 @@
 </head>
 <body>
     <div class="container">
-        <c:import url="./include/menu.jsp"></c:import>
-        <%--<form:form modelAttribute="searchBook" action="searchBook" method="post">--%>
-        <form:form action="searchBook" method="post">
-            <br/><p>Vous pouvez sélectionner vos critères de recherche via ce formulaire.</p>
-
-            <div class="form-group row">
-                <div class="col-sm-6">
-                    <form:label path="titre">Recherche de livre par titre</form:label>
-                    <form:input path="titre" placeholder="Entrer le titre"/>
-                </div>
-                <div class="col-sm-6">
-                    <form:label path="auteur">Recherche de livre par auteur</form:label>
-                    <form:input path="auteur" placeholder="Entrer l'auteur"/>
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-sm-6">
-                    <form:label path="edition">Recherche de livre par édition</form:label>
-                    <form:input path="edition" placeholder="Entrer l'édition"/>
-                </div>
-                <div class="col-sm-6">
-                    <form:label path="date">Recherche de livre par date</form:label>
-                    <form:input path="date" placeholder="Entrer la date"/>
-                </div>
-            </div>
-            <input type="submit" value="Valider">
-        </form:form>
-    </div>
-    <div class="container">
-        <br/><h2>Liste des livres</h2>
-        <table class="table" data-url="/book">
+        <c:import url="../include/menu.jsp"></c:import>
+        <c:import url="searchBookForm.jsp"></c:import>
+        <c:import url="book.jsp"></c:import>
+        <%--<br/><h2>Liste des livres</h2>
+        <table class="table" data-url="/books">
             <tr>
                 <th>Titre</th>
                 <th>Auteur</th>
@@ -59,14 +33,14 @@
                 <th>Emprunt</th>
             </tr>
             <c:forEach var="book" items="${books}">
-                <tr class="table" data-url="/book">
+                <tr class="table" data-url="/books">
                     <td>${book.title}</td>
                     <td>${book.bookAuthor.lastName}</td>
                     <td>${book.bookCategory.quantity}</td>
                     <td>${book.bookEdition.nameEdition}</td>
                 </tr>
             </c:forEach>
-        </table>
+        </table>--%>
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
             integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"

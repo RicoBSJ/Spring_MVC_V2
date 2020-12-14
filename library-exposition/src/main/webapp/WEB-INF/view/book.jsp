@@ -27,23 +27,18 @@
             <table class="table">
                 <tr>
                     <th>Titre</th>
-                    <th>Quantité</th>
-                    <th>Année</th>
                     <th>Auteur</th>
-                    <th>Catégorie</th>
-                    <th>Edition</th>
+                    <th>Nombre d'exemplaires</th>
+                    <th>Emprunt</th>
                 </tr>
                 <c:forEach var="book" items="${books}">
                     <tr class="table">
                         <td>${book.title}</td>
-                        <td>${book.quantity}</td>
-                        <td>${book.yearBook}</td>
                         <td>${book.bookAuthor.lastName}</td>
-                        <td>${book.bookCategory.nameCategory}</td>
+                        <td>${book.quantity}</td>
                         <td>${book.bookEdition.nameEdition}</td>
                     </tr>
                 </c:forEach>
-            </table>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
