@@ -35,17 +35,4 @@ public class SearchController {
         model.addAttribute("searchBook" , searchBook1);
         return "confirm";
     }
-
-    /*@GetMapping("/personne")
-    public String personneForm(Model model) {
-        model.addAttribute("personne", new Personne());
-        return "personneForm";
-    }
-    @PostMapping("/personne")
-    public String personneSubmit(@ModelAttribute("personne") Personne
-                                         personne, Model model) {
-        Personne p1 = personneRepository.save(personne);
-        model.addAttribute("personne", p1);
-        return "confirm";
-    }*/
 }
