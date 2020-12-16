@@ -22,6 +22,7 @@
 <body>
     <div class="container">
         <c:import url="../include/menu.jsp"></c:import>
+        <%--@elvariable id="searchBook" type=""--%>
         <form:form modelAttribute="searchBook" action="searchBook" method="post">
             <br/><p>Vous pouvez sélectionner vos critères de recherche via ce formulaire.</p>
 
