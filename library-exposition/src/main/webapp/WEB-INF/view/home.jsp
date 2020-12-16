@@ -24,14 +24,14 @@
     <c:import url="../include/menu.jsp"></c:import>
     <br/>
     <h2>Liste des livres</h2>
-    <table border="2" width="70%" cellpadding="2">
+    <table class="table" border="2" width="70%" cellpadding="2">
         <tr><th>Titre</th><th>Auteur</th><th>Nombre d'exemplaire</th><th>Emprunt</th><th>Edit</th><th>Delete</th></tr>
-        <c:forEach var="books" items="${books}">
-            <tr>
-                <td>${books.title}</td>
-                <td>${books.bookAuthor.lastName}</td>
-                <td>${books.bookCategory.quantity}</td>
-                <td>${books.bookEdition.nameEdition}</td>
+        <c:forEach var="book" items="${books}">
+            <tr class="table">
+                <td>${book.title}</td>
+                <td>${book.bookAuthor.lastName}</td>
+                <td>${book.bookCategory.quantity}</td>
+                <td>${book.bookEdition.nameEdition}</td>
                 <td><a href="editemp/${emp.id}">Edit</a></td>
                 <td><a href="deleteemp/${emp.id}">Delete</a></td>
             </tr>
