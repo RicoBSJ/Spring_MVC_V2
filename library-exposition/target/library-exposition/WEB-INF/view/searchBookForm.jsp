@@ -26,6 +26,10 @@
         <form:form modelAttribute="searchBook" action="searchBook" method="post">
             <br/><p>Vous pouvez sélectionner vos critères de recherche via ce formulaire.</p>
 
+            <p>
+                <a href="<c:url value="/"/>">Retour à l'accueil</a>
+            </p>
+
             <div class="form-group row">
                 <div class="col-sm-6">
                     <form:label path="searchBookTitle">Recherche de livre par titre</form:label>
