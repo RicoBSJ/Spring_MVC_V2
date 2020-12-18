@@ -29,7 +29,7 @@
                     <th>Titre</th>
                     <th>Auteur</th>
                     <th>Nombre d'exemplaires</th>
-                    <th>Emprunt</th>
+                    <th>Edition</th>
                 </tr>
                 <c:forEach var="book" items="${books}">
                     <tr class="table">
