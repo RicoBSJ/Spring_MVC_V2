@@ -2,7 +2,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <div class="container">
-    <%--@elvariable id="searchBook" type="com"--%>
     <form:form modelAttribute="searchBook" action="book/search" method="post">
         <br/>
         <p>Vous pouvez sélectionner vos critères de recherche via ce formulaire.</p>
