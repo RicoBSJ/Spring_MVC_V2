@@ -23,10 +23,10 @@
 <div class="container">
     <c:import url="../include/menu.jsp"></c:import>
     <br/>
-    <%--<section>
+    <section>
         <h2>Rechercher un livre</h2>
-        <c:import url="./searchBookForm"></c:import>
-    </section>--%>
+        <c:import url="../include/searchBookForm.jsp"></c:import>
+    </section>
         <h2>Résultats</h2>
     <table class="table" border="2" width="70%" cellpadding="2">
         <tr>

@@ -23,22 +23,12 @@ public class SearchController {
         this.bookService = bookService;
     }
 
-    @GetMapping(value = "/searchBookForm")
+    /*@GetMapping("/searchBookForm")
     public String printAllBooks(ModelMap modelMap) {
 
-        /*Books books = bookService.findBooks().getBody();*/
+        *//*Books books = bookService.findBooks().getBody();*//*
         modelMap.addAttribute("searchBook" , new SearchBook());
-        return "/searchBookForm";
-    }
-
-    /*@RequestMapping(value = "/searchBook", method = RequestMethod.GET)
-    public ModelAndView showForm() {
-        return new ModelAndView("searchBookForm", "searchBook", new SearchBook());
-    }
-
-    @RequestMapping(value = "/searchBook/{searchBookId}", produces = { "application/json", "application/xml" }, method = RequestMethod.GET)
-    public @ResponseBody SearchBook getSearchBookById(@PathVariable final Integer searchBookId) {
-        return searchBookMap.get(searchBookId);
+        return "../include/searchBookForm";
     }*/
 
     @PostMapping(value = "/searchBookForm")
@@ -56,7 +46,7 @@ public class SearchController {
 
         searchBookMap.put(searchBook.getSearchBookId(), searchBook);
 
-        return "/WEB-INF/include/searchBookForm.jsp";
+        return "../include/searchBookForm";
     }
 
     @ModelAttribute

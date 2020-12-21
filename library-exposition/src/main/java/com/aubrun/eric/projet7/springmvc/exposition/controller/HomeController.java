@@ -1,13 +1,12 @@
 package com.aubrun.eric.projet7.springmvc.exposition.controller;
 
 import com.aubrun.eric.projet7.springmvc.business.service.BookService;
+import com.aubrun.eric.projet7.springmvc.model.Books;
 import com.aubrun.eric.projet7.springmvc.model.SearchBook;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class HomeController {
@@ -23,6 +22,14 @@ public class HomeController {
         model.addAttribute("searchBook", new SearchBook());
         return "book";
     }*/
+
+    @GetMapping("/searchBookForm")
+    public String printAllBooks(ModelMap modelMap) {
+
+        /*Books books = bookService.findBooks().getBody();*/
+        modelMap.addAttribute("searchBook" , new SearchBook());
+        return "../include/searchBookForm";
+    }
 
     @RequestMapping(value = {"","/","/home","/homePage"}, method = RequestMethod.GET)
     public String home() {
