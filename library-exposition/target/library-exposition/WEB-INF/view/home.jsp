@@ -15,18 +15,18 @@
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
           crossorigin="anonymous">
-    <link type="text/css" rel="stylesheet"
-          href="<c:url value="../include/style.css" />"/>
+    <%--<link type="text/css" rel="stylesheet"
+          href="<c:url value="../include/style.css" />"/>--%>
     <title>Page d'accueil de la bibliothèque</title>
 </head>
 <body>
 <div class="container">
     <c:import url="../include/menu.jsp"></c:import>
     <br/>
-    <section>
+    <%--<section>
         <h2>Rechercher un livre</h2>
-        <c:import url="../include/searchBookForm.jsp"></c:import>
-    </section>
+        <c:import url="./searchBookForm"></c:import>
+    </section>--%>
         <h2>Résultats</h2>
     <table class="table" border="2" width="70%" cellpadding="2">
         <tr>
