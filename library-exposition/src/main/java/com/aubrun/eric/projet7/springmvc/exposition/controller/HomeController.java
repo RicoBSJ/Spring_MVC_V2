@@ -17,19 +17,13 @@ public class HomeController {
         this.bookService = bookService;
     }
 
-    /*@RequestMapping(value = "/searchBook", method = RequestMethod.GET)
-    public String home(Model model) {
-        model.addAttribute("searchBook", new SearchBook());
-        return "book";
-    }*/
-
-    @GetMapping("/searchBookForm")
+    /*@GetMapping("/searchBookForm")
     public String printAllBooks(ModelMap modelMap) {
 
-        /*Books books = bookService.findBooks().getBody();*/
+        *//*Books books = bookService.findBooks().getBody();*//*
         modelMap.addAttribute("searchBook" , new SearchBook());
         return "../include/searchBookForm";
-    }
+    }*/
 
     @RequestMapping(value = {"","/","/home","/homePage"}, method = RequestMethod.GET)
     public String home() {
@@ -37,11 +31,11 @@ public class HomeController {
         return "/home";
     }
 
-    /*@PostMapping(value = "/book/search")
+    @PostMapping(value = "/book/search")
     private String searchBookSubmit(@ModelAttribute("searchBook") SearchBook searchBook, Model model) {
 
         SearchBook searchBook1 = bookService.bookResponseEntity().getBody();
         model.addAttribute("searchBook" , searchBook1);
-        return "confirm";
-    }*/
+        return "../include/searchBookForm";
+    }
 }

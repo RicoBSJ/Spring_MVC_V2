@@ -1,6 +1,7 @@
 package com.aubrun.eric.projet7.springmvc.exposition.controller;
 
 import com.aubrun.eric.projet7.springmvc.business.service.BookService;
+import com.aubrun.eric.projet7.springmvc.model.Books;
 import com.aubrun.eric.projet7.springmvc.model.SearchBook;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,13 +24,13 @@ public class SearchController {
         this.bookService = bookService;
     }
 
-    /*@GetMapping("/searchBookForm")
+    @GetMapping("/searchBookForm")
     public String printAllBooks(ModelMap modelMap) {
 
-        *//*Books books = bookService.findBooks().getBody();*//*
+        /*Books books = bookService.findBooks().getBody();*/
         modelMap.addAttribute("searchBook" , new SearchBook());
         return "../include/searchBookForm";
-    }*/
+    }
 
     @PostMapping(value = "/searchBookForm")
     private String searchBookSubmit(@ModelAttribute("searchBook") SearchBook searchBook, BindingResult result, ModelMap model) {
