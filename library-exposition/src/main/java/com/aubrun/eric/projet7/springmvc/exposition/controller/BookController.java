@@ -24,7 +24,7 @@ public class BookController {
         this.bookService = bookService;
     }
 
-    @RequestMapping(value = {"/book","/getAllBook"}, method = RequestMethod.GET)
+    @GetMapping(value = {"/book","/getAllBook"})
     public String printAllBooks(ModelMap modelMap) {
 
         Books books = bookService.findBooks().getBody();

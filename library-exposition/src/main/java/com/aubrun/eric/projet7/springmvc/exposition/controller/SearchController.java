@@ -24,7 +24,7 @@ public class SearchController {
         this.bookService = bookService;
     }
 
-    @GetMapping("/searchBookForm")
+    @GetMapping(value = "/searchBookForm")
     public String printAllBooks(ModelMap modelMap) {
 
         /*Books books = bookService.findBooks().getBody();*/
@@ -52,6 +52,6 @@ public class SearchController {
 
     @ModelAttribute
     public void addAttributes(Model model) {
-        model.addAttribute("msg", "Welcome to the Javaland!");
+        model.addAttribute("msg", "Welcome to Javaland!");
     }
 }

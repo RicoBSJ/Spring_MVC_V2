@@ -4,7 +4,6 @@ import com.aubrun.eric.projet7.springmvc.business.service.BorrowingService;
 import com.aubrun.eric.projet7.springmvc.model.Borrowing;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -17,8 +16,8 @@ public class BorrowingController {
         this.borrowingService = borrowingService;
     }
 
-    @RequestMapping(value="/borrow/{bookId}", method = RequestMethod.POST)
-    public String borrowing(@PathVariable int id, Model m){
+    @RequestMapping(value="/borrow", method = RequestMethod.POST)
+    public String borrowing(Model m){
         Borrowing borrowing = borrowingService.addBorrow().getBody();
         m.addAttribute("borrowing",borrowing);
         return "home";

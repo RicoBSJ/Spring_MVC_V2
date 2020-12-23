@@ -6,7 +6,11 @@ import com.aubrun.eric.projet7.springmvc.model.SearchBook;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 public class HomeController {
@@ -20,12 +24,12 @@ public class HomeController {
     /*@GetMapping("/searchBookForm")
     public String printAllBooks(ModelMap modelMap) {
 
-        *//*Books books = bookService.findBooks().getBody();*//*
+        Books books = bookService.findBooks().getBody();
         modelMap.addAttribute("searchBook" , new SearchBook());
         return "../include/searchBookForm";
     }*/
 
-    @RequestMapping(value = {"","/","/home","/homePage"}, method = RequestMethod.GET)
+    @GetMapping(value = {"","/","/home","/homePage"})
     public String home() {
 
         return "/home";
