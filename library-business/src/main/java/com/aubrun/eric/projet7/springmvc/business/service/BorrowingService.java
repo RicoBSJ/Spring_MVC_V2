@@ -16,8 +16,8 @@ public class BorrowingService {
         this.borrowingConsumer = borrowingConsumer;
     }
 
-    public ResponseEntity<Borrowing> addBorrow() {
+    public ResponseEntity<Borrowing> addBorrow(Borrowing borrowing) {
 
-        return borrowingConsumer.addBorrowing();
+        return borrowingConsumer.addBorrowing(borrowing);
     }
 }

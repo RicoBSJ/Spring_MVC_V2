@@ -17,8 +17,8 @@ public class BorrowingController {
     }
 
     @RequestMapping(value="/borrow", method = RequestMethod.POST)
-    public String borrowing(Model m){
-        Borrowing borrowing = borrowingService.addBorrow().getBody();
+    public String borrowing(Borrowing newBorrowing, Model m){
+        Borrowing borrowing = borrowingService.addBorrow(newBorrowing).getBody();
         m.addAttribute("borrowing",borrowing);
         return "home";
     }
