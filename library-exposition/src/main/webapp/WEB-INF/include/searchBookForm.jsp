@@ -3,7 +3,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
 <div class="container">
-    <form:form modelAttribute="searchBook" action="/library_exposition_war_exploded/searchBookForm" method="post">
+    <form:form modelAttribute="searchBook" action="/library_exposition_war_exploded/home/search" method="post">
         <br/>
         <p>Vous pouvez sélectionner vos critères de recherche via ce formulaire.</p>
 

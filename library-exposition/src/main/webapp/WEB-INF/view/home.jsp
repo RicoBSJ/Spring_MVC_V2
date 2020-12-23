@@ -25,7 +25,7 @@
     <br/>
     <section>
         <h2>Rechercher un livre</h2>
-        <c:import url="./searchBookForm"></c:import>
+        <c:import url="../include/searchBookForm.jsp"></c:import>
     </section>
         <h2>Résultats</h2>
     <table class="table" border="2" width="70%" cellpadding="2">
@@ -39,7 +39,7 @@
             <tr class="table">
                 <td>${book.title}</td>
                 <td>${book.bookAuthor.lastName}</td>
-                <td>${book.bookCategory.quantity}</td>
+                <td>${book.quantity}</td>
                 <td><a href="borrow/${book.bookId}">Emprunt</a></td>
             </tr>
         </c:forEach>

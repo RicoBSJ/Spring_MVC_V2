@@ -22,8 +22,8 @@ public class BookService {
         return bookConsumer.findAllBooks();
     }
 
-    public ResponseEntity<SearchBook> bookResponseEntity(){
+    public ResponseEntity<Books> searchBook(SearchBook searchBook){
 
-        return bookConsumer.searchBook();
+        return bookConsumer.searchBook(searchBook);
     }
 }

@@ -16,8 +16,6 @@ import java.util.Map;
 @ControllerAdvice
 public class SearchController {
 
-    private final Map<Integer, SearchBook> searchBookMap = new HashMap<>();
-
     private final BookService bookService;
 
     public SearchController(BookService bookService) {
@@ -29,24 +27,6 @@ public class SearchController {
 
         /*Books books = bookService.findBooks().getBody();*/
         modelMap.addAttribute("searchBook" , new SearchBook());
-        return "../include/searchBookForm";
-    }
-
-    @PostMapping(value = "/searchBookForm")
-    private String searchBookSubmit(@ModelAttribute("searchBook") SearchBook searchBook, BindingResult result, ModelMap model) {
-
-        if(result.hasErrors()){
-            return "error";
-        }
-
-        model.addAttribute("searchBookTitle", searchBook.getSearchBookTitle());
-        model.addAttribute("searchBookAuthorName", searchBook.getSearchBookAuthorName());
-        model.addAttribute("searchBookPublishingHouse", searchBook.getSearchBookPublishingHouse());
-        model.addAttribute("searchBookReleaseDate", searchBook.getSearchBookReleaseDate());
-        model.addAttribute("searchBookId", searchBook.getSearchBookId());
-
-        searchBookMap.put(searchBook.getSearchBookId(), searchBook);
-
         return "../include/searchBookForm";
     }
 
