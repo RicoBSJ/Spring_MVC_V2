@@ -13,25 +13,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Controller
-@ControllerAdvice
 public class SearchController {
-
-    private final BookService bookService;
-
-    public SearchController(BookService bookService) {
-        this.bookService = bookService;
-    }
 
     @GetMapping(value = "/searchBookForm")
     public String printAllBooks(ModelMap modelMap) {
 
-        /*Books books = bookService.findBooks().getBody();*/
         modelMap.addAttribute("searchBook" , new SearchBook());
         return "../include/searchBookForm";
-    }
-
-    @ModelAttribute
-    public void addAttributes(Model model) {
-        model.addAttribute("msg", "Welcome to Javaland!");
     }
 }

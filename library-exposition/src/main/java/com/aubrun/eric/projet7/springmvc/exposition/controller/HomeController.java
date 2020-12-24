@@ -1,8 +1,9 @@
 package com.aubrun.eric.projet7.springmvc.exposition.controller;
 
 import com.aubrun.eric.projet7.springmvc.business.service.BookService;
+import com.aubrun.eric.projet7.springmvc.business.service.BorrowingService;
 import com.aubrun.eric.projet7.springmvc.model.Book;
-import com.aubrun.eric.projet7.springmvc.model.Books;
+import com.aubrun.eric.projet7.springmvc.model.Borrowing;
 import com.aubrun.eric.projet7.springmvc.model.SearchBook;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,18 +22,12 @@ public class HomeController {
     private final Map<Integer, SearchBook> searchBookMap = new HashMap<>();
 
     private final BookService bookService;
+    private final BorrowingService borrowingService;
 
-    public HomeController(BookService bookService) {
+    public HomeController(BookService bookService, BorrowingService borrowingService) {
         this.bookService = bookService;
+        this.borrowingService = borrowingService;
     }
-
-    /*@GetMapping("/searchBookForm")
-    public String printAllBooks(ModelMap modelMap) {
-
-        Books books = bookService.findBooks().getBody();
-        modelMap.addAttribute("searchBook" , new SearchBook());
-        return "../include/searchBookForm";
-    }*/
 
     @GetMapping(value = {"","/","/home","/homePage"})
     public ModelAndView home() {
@@ -50,5 +45,13 @@ public class HomeController {
         ModelAndView modelAndView = new ModelAndView("/home", "searchBook", new SearchBook());
         modelAndView.addObject("books", result);
         return modelAndView;
+    }
+
+    @PostMapping(value="/borrow")
+    public String borrowing(Borrowing newBorrowing, Model m){
+
+        Borrowing borrowing = borrowingService.addBorrow(newBorrowing).getBody();
+        m.addAttribute("borrowing",borrowing);
+        return "home";
     }
 }

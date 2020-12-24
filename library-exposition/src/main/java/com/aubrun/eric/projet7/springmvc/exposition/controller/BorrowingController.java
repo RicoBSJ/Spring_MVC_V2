@@ -1,25 +1,17 @@
 package com.aubrun.eric.projet7.springmvc.exposition.controller;
 
-import com.aubrun.eric.projet7.springmvc.business.service.BorrowingService;
 import com.aubrun.eric.projet7.springmvc.model.Borrowing;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class BorrowingController {
 
-    private final BorrowingService borrowingService;
+    @GetMapping(value = "/borrow")
+    public String printAllBooks(ModelMap modelMap) {
 
-    public BorrowingController(BorrowingService borrowingService) {
-        this.borrowingService = borrowingService;
-    }
-
-    @RequestMapping(value="/borrow", method = RequestMethod.POST)
-    public String borrowing(Borrowing newBorrowing, Model m){
-        Borrowing borrowing = borrowingService.addBorrow(newBorrowing).getBody();
-        m.addAttribute("borrowing",borrowing);
+        modelMap.addAttribute("borrowing" , new Borrowing());
         return "home";
     }
 }
