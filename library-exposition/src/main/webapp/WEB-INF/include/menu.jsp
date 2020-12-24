@@ -22,14 +22,11 @@
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active">
-					<a class="nav-link" href="<c:url value="./author" />">Auteurs</a>
+				<li class="nav-item">
+					<a class="nav-link" href="<c:url value="./user_account" />">Inscription</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="<c:url value="./book" />">Livres</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="<c:url value="./searchBookForm" />">Recherche</a>
+					<a class="nav-link" href="<c:url value="./book" />">Connexion</a>
 				</li>
 			</ul>
 		</div>
