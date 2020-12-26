@@ -1,5 +1,7 @@
-com\aubrun\eric\projet7\springmvc\exposition\controller\BookController.class
-com\aubrun\eric\projet7\springmvc\exposition\controller\BorrowingController.class
-com\aubrun\eric\projet7\springmvc\exposition\controller\HomeController.class
-com\aubrun\eric\projet7\springmvc\exposition\controller\AuthorController.class
-com\aubrun\eric\projet7\springmvc\exposition\controller\SearchController.class
+com/aubrun/eric/projet7/springmvc/exposition/controller/BookController.class
+com/aubrun/eric/projet7/springmvc/exposition/controller/ConnectUserController.class
+com/aubrun/eric/projet7/springmvc/exposition/controller/AuthorController.class
+com/aubrun/eric/projet7/springmvc/exposition/controller/BorrowingController.class
+com/aubrun/eric/projet7/springmvc/exposition/controller/SearchController.class
+com/aubrun/eric/projet7/springmvc/exposition/controller/HomeController.class
+com/aubrun/eric/projet7/springmvc/exposition/controller/CreateUserController.class

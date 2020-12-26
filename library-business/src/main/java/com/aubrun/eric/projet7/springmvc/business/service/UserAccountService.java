@@ -20,4 +20,9 @@ public class UserAccountService {
 
         return userAccountConsumer.addUserAccount(userAccount);
     }
+
+    public ResponseEntity<UserAccount> connectUser(UserAccount userAccount) {
+
+        return userAccountConsumer.addConnectedUser(userAccount);
+    }
 }

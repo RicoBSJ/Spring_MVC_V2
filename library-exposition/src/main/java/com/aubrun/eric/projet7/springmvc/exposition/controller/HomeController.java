@@ -45,7 +45,7 @@ public class HomeController {
         return modelAndView;
     }
 
-    @PostMapping(value="/borrow")
+    @PostMapping(value="/borrowing")
     public String borrowing(@ModelAttribute("newBorrowing") Borrowing newBorrowing, Model model){
 
         Borrowing borrowing = borrowingService.addBorrow(newBorrowing).getBody();
@@ -53,10 +53,18 @@ public class HomeController {
         return "home";
     }
 
-    @PostMapping(value="/user_account")
-    public String user_account(@ModelAttribute("newUser") UserAccount newUser, Model model){
+    @PostMapping(value="/signupForm")
+    public String createUser(@ModelAttribute("newUser") UserAccount newUser, Model model){
 
         UserAccount userAccount = userAccountService.addUser(newUser).getBody();
+        model.addAttribute("userAccount",userAccount);
+        return "home";
+    }
+
+    @PostMapping(value="/signinForm")
+    public String connectUser(@ModelAttribute("currentUser") UserAccount currentUser, Model model){
+
+        UserAccount userAccount = userAccountService.connectUser(currentUser).getBody();
         model.addAttribute("userAccount",userAccount);
         return "home";
     }
