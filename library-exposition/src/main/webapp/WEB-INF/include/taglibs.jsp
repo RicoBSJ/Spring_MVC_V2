@@ -1,42 +1,19 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: ricobsj
-  Date: 08/12/2020
-  Time: 00:11
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8"/>
+    <meta charset="UTF-8">
     <link rel="stylesheet"
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
           crossorigin="anonymous">
     <link type="text/css" rel="stylesheet"
-          href="<c:url value="../include/style.css" />"/>
-    <title>Liste des auteurs</title>
+          href="<c:url value="./style.css" />"/>
 </head>
+
 <body>
-<div class="container">
-    <h1>Liste des auteurs</h1>
-    <p>
-        <a href="<c:url value="/"/>">Retour à l'accueil</a>
-    </p>
-    <table class="table">
-        <tr>
-            <th>Prénom</th>
-            <th>Nom</th>
-        </tr>
-        <c:forEach var="author" items="${authors}">
-            <tr class="table">
-                <td>${author.firstName}</td>
-                <td>${author.lastName}</td>
-            </tr>
-        </c:forEach>
-    </table>
-</div>
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"

@@ -10,10 +10,14 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
 <div class="container">
-    <form:form modelAttribute="userAccount" method="post" action="/library_exposition_war_exploded/user_creation">
-
+    <form:form modelAttribute="userAccount" method="post" action="/library_exposition_war_exploded/home/registration">
+        <br/>
         <p>Vous pouvez vous inscrire via ce formulaire.</p>
-
+        <br/>
+        <p>
+            <a href="<c:url value="/"/>">Retour à l'accueil</a>
+        </p>
+        <br/>
         <div class="form-group row">
             <div class="col-sm-6">
                 <form:label path="username">Nom</form:label>
@@ -31,7 +35,7 @@
         <div class="form-group row">
             <div class="col-sm-6">
                 <form:label path="password">Mot de passe</form:label>
-                <form:input path="password" placeholder="Entrez votre mot de passe"/>
+                <form:password path="password" placeholder="Entrez votre mot de passe"/>
                 <br/>
             </div>
             <div class="col-sm-6">
@@ -40,6 +44,7 @@
                 <br/>
             </div>
         </div>
+        <br/>
         <input type="submit" value="Inscription"/>
     </form:form>
 </div>

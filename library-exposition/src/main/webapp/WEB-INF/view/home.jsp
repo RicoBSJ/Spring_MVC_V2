@@ -27,13 +27,15 @@
         <h2>Rechercher un livre</h2>
         <c:import url="../include/searchBookForm.jsp"></c:import>
     </section>
-        <h2>Résultats</h2>
+    <br/>
+    <h2>Résultats</h2>
+    <br/>
     <table class="table" border="2" width="70%" cellpadding="2">
         <tr>
-        <th>Titre</th>
-        <th>Auteur</th>
-        <th>Nombre d'exemplaire</th>
-        <th>Emprunt</th>
+            <th>Titre</th>
+            <th>Auteur</th>
+            <th>Nombre d'exemplaire</th>
+            <th>Emprunt</th>
         </tr>
         <c:forEach var="book" items="${books}">
             <tr class="table">

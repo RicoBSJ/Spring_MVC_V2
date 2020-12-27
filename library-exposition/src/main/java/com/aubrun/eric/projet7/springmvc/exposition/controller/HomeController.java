@@ -3,10 +3,7 @@ package com.aubrun.eric.projet7.springmvc.exposition.controller;
 import com.aubrun.eric.projet7.springmvc.business.service.BookService;
 import com.aubrun.eric.projet7.springmvc.business.service.BorrowingService;
 import com.aubrun.eric.projet7.springmvc.business.service.UserAccountService;
-import com.aubrun.eric.projet7.springmvc.model.Book;
-import com.aubrun.eric.projet7.springmvc.model.Borrowing;
-import com.aubrun.eric.projet7.springmvc.model.SearchBook;
-import com.aubrun.eric.projet7.springmvc.model.UserAccount;
+import com.aubrun.eric.projet7.springmvc.model.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -27,7 +24,7 @@ public class HomeController {
         this.userAccountService = userAccountService;
     }
 
-    @GetMapping(value = {"","/","/home","/homePage"})
+    @GetMapping(value = {"", "/", "/home", "/homePage"})
     public ModelAndView home() {
         SearchBook searchBook = new SearchBook();
         List<Book> result = bookService.searchBook(searchBook).getBody();
@@ -45,27 +42,55 @@ public class HomeController {
         return modelAndView;
     }
 
-    @PostMapping(value="/borrowing")
-    public String borrowing(@ModelAttribute("newBorrowing") Borrowing newBorrowing, Model model){
+    @PostMapping(value = "/borrowing")
+    public String borrowing(@ModelAttribute("newBorrowing") Borrowing newBorrowing, Model model) {
 
         Borrowing borrowing = borrowingService.addBorrow(newBorrowing).getBody();
-        model.addAttribute("borrowing",borrowing);
+        model.addAttribute("borrowing", borrowing);
         return "home";
     }
 
-    @PostMapping(value="/signupForm")
+    /*@PostMapping(value="/home/registration")
     public String createUser(@ModelAttribute("newUser") UserAccount newUser, Model model){
 
         UserAccount userAccount = userAccountService.addUser(newUser).getBody();
         model.addAttribute("userAccount",userAccount);
         return "home";
+    }*/
+
+    @PostMapping("/home/registration")
+    public String registrationUser(@ModelAttribute("userAccount") UserAccount userAccount, Model model) {
+
+        System.out.println("Username : " + userAccount.getUsername());
+        System.out.println("Password : " + userAccount.getPassword());
+        System.out.println("Email : " + userAccount.getEmail());
+        System.out.println("Role : " + userAccount.getRoleDtos());
+        System.out.println("Id : " + userAccount.getUserId());
+
+        model.addAttribute("message", "Inscription réussie.");
+        model.addAttribute("userAccount", userAccount);
+
+        return "../include/signUpSuccess";
     }
 
-    @PostMapping(value="/signinForm")
+    /*@PostMapping(value="/home/connexion")
     public String connectUser(@ModelAttribute("currentUser") UserAccount currentUser, Model model){
 
         UserAccount userAccount = userAccountService.connectUser(currentUser).getBody();
         model.addAttribute("userAccount",userAccount);
         return "home";
+    }*/
+
+    @PostMapping("/home/connexion")
+    public String connectUser(@ModelAttribute("userAccount") UserAccount userAccount, Model model) {
+
+        System.out.println("Username : " + userAccount.getUsername());
+        System.out.println("Password : " + userAccount.getPassword());
+        System.out.println("Id : " + userAccount.getUserId());
+
+        model.addAttribute("message", "Connexion réussie.");
+        model.addAttribute("userAccount", userAccount);
+
+        return "../include/signInSuccess";
     }
 }
