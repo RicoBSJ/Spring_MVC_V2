@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
     <title>Inscription</title>
@@ -23,9 +24,9 @@
             <tr>
                 <td><b>Email </b>: ${userAccount.email}</td>
             </tr>
-            <tr>
+            <%--<tr>
                 <td><b>Role </b> : ${userAccount.roleDtos}</td>
-            </tr>
+            </tr>--%>
         </table>
         <br/>
         <p>

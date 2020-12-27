@@ -38,11 +38,11 @@
                 <form:password path="password" placeholder="Entrez votre mot de passe"/>
                 <br/>
             </div>
-            <div class="col-sm-6">
+            <%--<div class="col-sm-6">
                 <form:label path="roleDtos">Role</form:label>
                 <form:input path="roleDtos" placeholder="Entrez votre role"/>
                 <br/>
-            </div>
+            </div>--%>
         </div>
         <br/>
         <input type="submit" value="Inscription"/>

@@ -61,14 +61,16 @@ public class HomeController {
     @PostMapping("/home/registration")
     public String registrationUser(@ModelAttribute("userAccount") UserAccount userAccount, Model model) {
 
+        UserAccount newUser = userAccountService.addUser(userAccount).getBody();
+
         System.out.println("Username : " + userAccount.getUsername());
         System.out.println("Password : " + userAccount.getPassword());
         System.out.println("Email : " + userAccount.getEmail());
         System.out.println("Role : " + userAccount.getRoleDtos());
         System.out.println("Id : " + userAccount.getUserId());
 
-        model.addAttribute("message", "Inscription réussie.");
-        model.addAttribute("userAccount", userAccount);
+        model.addAttribute("message", "Inscription réussie : ");
+        model.addAttribute("userAccount", newUser);
 
         return "../include/signUpSuccess";
     }
@@ -81,15 +83,17 @@ public class HomeController {
         return "home";
     }*/
 
-    @PostMapping("/home/connexion")
+    @PostMapping("/home/login")
     public String connectUser(@ModelAttribute("userAccount") UserAccount userAccount, Model model) {
+
+        UserAccount currentUser = userAccountService.connectUser(userAccount).getBody();
 
         System.out.println("Username : " + userAccount.getUsername());
         System.out.println("Password : " + userAccount.getPassword());
         System.out.println("Id : " + userAccount.getUserId());
 
-        model.addAttribute("message", "Connexion réussie.");
-        model.addAttribute("userAccount", userAccount);
+        model.addAttribute("message", "Connexion réussie : ");
+        model.addAttribute("userAccount", currentUser);
 
         return "../include/signInSuccess";
     }
