@@ -52,11 +52,11 @@ public class UserAccount {
         this.borrowingList = borrowingList;
     }
 
-    public Set<Role> getRoles() {
+    public Set<Role> getRoleDtos() {
         return roles;
     }
 
-    public void setRoles(Set<Role> roles) {
+    public void setRoleDtos(Set<Role> roles) {
         this.roles = roles;
     }
 }

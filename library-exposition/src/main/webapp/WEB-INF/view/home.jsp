@@ -42,7 +42,7 @@
                 <td>${book.title}</td>
                 <td>${book.bookAuthor.lastName}</td>
                 <td>${book.quantity}</td>
-                <td><a href="borrowing/${book.bookId}">Emprunt</a></td>
+                <td><a href="home/borrowing/${book.bookId}">Emprunt</a></td>
             </tr>
         </c:forEach>
     </table>

@@ -42,7 +42,7 @@
             <div class="col-sm-6">
                 <label>
                     <p>Sélectionnez votre rôle : </p>
-                    <select path="roles" items="${userAccount.roles}">
+                    <select path="roles" items="${userAccount.roleDtos}">
                         <option value="NONE">--- Select ---</option>
                         <option value="ROLE_USER">ROLE_USER</option>
                         <option value="ROLE_MODERATOR">ROLE_MODERATOR</option>
@@ -50,12 +50,8 @@
                     </select>
                 </label>
             </div>
-                <%--<div class="col-sm-6">
-                    <form:label path="roleDtos">Role</form:label>
-                    <form:input path="roleDtos" placeholder="Entrez votre role"/>
-                    <br/>
-                </div>--%>
         </div>
+        <form:hidden path="userId" value="1"/>
         <br/>
         <input type="submit" value="Inscription"/>
     </form:form>

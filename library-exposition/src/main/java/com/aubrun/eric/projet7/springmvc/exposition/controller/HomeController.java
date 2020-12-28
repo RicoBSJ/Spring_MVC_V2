@@ -68,7 +68,7 @@ public class HomeController {
         System.out.println("Username : " + userAccount.getUsername());
         System.out.println("Password : " + userAccount.getPassword());
         System.out.println("Email : " + userAccount.getEmail());
-        System.out.println("Role : " + userAccount.getRoles());
+        System.out.println("Role : " + userAccount.getRoleDtos());
         System.out.println("Id : " + userAccount.getUserId());
 
         model.addAttribute("message", "Inscription réussie : ");
