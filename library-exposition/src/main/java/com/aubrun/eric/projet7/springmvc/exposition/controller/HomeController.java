@@ -42,21 +42,23 @@ public class HomeController {
         return modelAndView;
     }
 
-    @PostMapping(value = "/borrowing")
-    public String borrowing(@ModelAttribute("newBorrowing") Borrowing newBorrowing, Model model) {
+    @PostMapping("/home/borrowing")
+    public String borrowing(@ModelAttribute("newBorrowing") Borrowing borrowing, Model model) {
 
-        Borrowing borrowing = borrowingService.addBorrow(newBorrowing).getBody();
-        model.addAttribute("borrowing", borrowing);
+        Borrowing newBorrowing = borrowingService.addBorrow(borrowing).getBody();
+
+        System.out.println("bookBorrowing : " + borrowing.getBookBorrowing());
+        System.out.println("userAccountBorrowing : " + borrowing.getUserAccountBorrowing());
+        System.out.println("beginDate : " + borrowing.getBeginDate());
+        System.out.println("endDate : " + borrowing.getEndDate());
+        System.out.println("renewal : " + borrowing.getRenewal());
+        System.out.println("borrowingId : " + borrowing.getBorrowingId());
+
+        model.addAttribute("message", "Emprunt réussi : ");
+        model.addAttribute("borrowing", newBorrowing);
+
         return "home";
     }
-
-    /*@PostMapping(value="/home/registration")
-    public String createUser(@ModelAttribute("newUser") UserAccount newUser, Model model){
-
-        UserAccount userAccount = userAccountService.addUser(newUser).getBody();
-        model.addAttribute("userAccount",userAccount);
-        return "home";
-    }*/
 
     @PostMapping("/home/registration")
     public String registrationUser(@ModelAttribute("userAccount") UserAccount userAccount, Model model) {
@@ -66,7 +68,7 @@ public class HomeController {
         System.out.println("Username : " + userAccount.getUsername());
         System.out.println("Password : " + userAccount.getPassword());
         System.out.println("Email : " + userAccount.getEmail());
-        System.out.println("Role : " + userAccount.getRoleDtos());
+        System.out.println("Role : " + userAccount.getRoles());
         System.out.println("Id : " + userAccount.getUserId());
 
         model.addAttribute("message", "Inscription réussie : ");
@@ -74,14 +76,6 @@ public class HomeController {
 
         return "../include/signUpSuccess";
     }
-
-    /*@PostMapping(value="/home/connexion")
-    public String connectUser(@ModelAttribute("currentUser") UserAccount currentUser, Model model){
-
-        UserAccount userAccount = userAccountService.connectUser(currentUser).getBody();
-        model.addAttribute("userAccount",userAccount);
-        return "home";
-    }*/
 
     @PostMapping("/home/login")
     public String connectUser(@ModelAttribute("userAccount") UserAccount userAccount, Model model) {

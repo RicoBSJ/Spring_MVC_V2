@@ -24,9 +24,9 @@
             <tr>
                 <td><b>Email </b>: ${userAccount.email}</td>
             </tr>
-            <%--<tr>
-                <td><b>Role </b> : ${userAccount.roleDtos}</td>
-            </tr>--%>
+            <tr>
+                <td><b>Role </b> : ${userAccount.roles}</td>
+            </tr>
         </table>
         <br/>
         <p>

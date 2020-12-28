@@ -44,19 +44,19 @@ public class UserAccount {
         this.password = password;
     }
 
-    public List<Borrowing> getBorrowingDtoList() {
+    public List<Borrowing> getBorrowingList() {
         return borrowingList;
     }
 
-    public void setBorrowingDtoList(List<Borrowing> borrowingList) {
+    public void setBorrowingList(List<Borrowing> borrowingList) {
         this.borrowingList = borrowingList;
     }
 
-    public Set<Role> getRoleDtos() {
+    public Set<Role> getRoles() {
         return roles;
     }
 
-    public void setRoleDtos(Set<Role> roles) {
+    public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
 }
