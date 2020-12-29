@@ -42,7 +42,10 @@
                 <td>${book.title}</td>
                 <td>${book.bookAuthor.lastName}</td>
                 <td>${book.quantity}</td>
-                <td><a href="home/borrowing/${book.bookId}">Emprunt</a></td>
+                <td><c:if test="${book.quantity != 0}">
+                    <a href="<c:url value="./home/borrowing" />">Emprunt</a>
+                </c:if>
+                </td>
             </tr>
         </c:forEach>
     </table>

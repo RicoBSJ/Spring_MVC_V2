@@ -17,4 +17,8 @@ public class BorrowingConsumer {
     public ResponseEntity<Borrowing> addBorrowing(Borrowing borrowing){
         return restTemplate.postForEntity("http://localhost:8081/biblio-api/borrowings/", borrowing, Borrowing.class);
     }
+
+    public ResponseEntity<Borrowing> getBorrowing(){
+        return restTemplate.getForEntity("http://localhost:8081/biblio-api/borrowings/", Borrowing.class);
+    }
 }

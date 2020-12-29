@@ -30,6 +30,9 @@
         </table>
         <br/>
         <p>
+            <a href="<c:url value="../signInForm"/>">Connexion</a>
+        </p>
+        <p>
             <a href="<c:url value="/"/>">Retour à l'accueil</a>
         </p>
         <br/>
