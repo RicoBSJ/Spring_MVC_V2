@@ -40,15 +40,13 @@
                 <br/>
             </div>
             <div class="col-sm-6">
-                <label>
-                    <p>Sélectionnez votre rôle : </p>
-                    <select path="roles" items="${userAccount.roleDtos}">
-                        <option value="NONE">--- Select ---</option>
-                        <option value="ROLE_USER">ROLE_USER</option>
-                        <option value="ROLE_MODERATOR">ROLE_MODERATOR</option>
-                        <option value="ROLE_ADMIN">ROLE_ADMIN</option>
-                    </select>
-                </label>
+                <%--<td><form:label path = "roleDtos">Roles</form:label></td>
+                <td>
+                    <form:select path = "roleDtos">
+                        <form:option value = "NONE" label = "Select"/>
+                        <form:options items = "${rolesList}" />
+                    </form:select>
+                </td>--%>
             </div>
         </div>
         <form:hidden path="userId" value="1"/>

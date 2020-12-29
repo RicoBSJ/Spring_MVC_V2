@@ -4,7 +4,6 @@ import com.aubrun.eric.projet7.springmvc.business.service.BookService;
 import com.aubrun.eric.projet7.springmvc.model.Book;
 import com.aubrun.eric.projet7.springmvc.model.Books;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -46,10 +45,5 @@ public class BookController {
         bookMap.put(book.getBookId(), book);
 
         return "book";
-    }
-
-    @ModelAttribute
-    public void addAttributes(Model model) {
-        model.addAttribute("msg", "Welcome to the Javaland!");
     }
 }

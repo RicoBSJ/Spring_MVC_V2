@@ -29,9 +29,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="<c:url value="./signInForm" />">Connexion</a>
                 </li>
-                <%--<c:if test="${!empty sessionScope.sessionUtilisateur}">
-                    <li class="nav-item">${sessionScope.sessionUtilisateur.nom}</li>
-                </c:if>--%>
             </ul>
         </div>
     </nav>

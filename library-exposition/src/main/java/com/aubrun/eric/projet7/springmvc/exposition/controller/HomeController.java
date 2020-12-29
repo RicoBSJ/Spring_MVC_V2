@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -70,6 +71,8 @@ public class HomeController {
         System.out.println("Email : " + userAccount.getEmail());
         System.out.println("Role : " + userAccount.getRoleDtos());
         System.out.println("Id : " + userAccount.getUserId());
+
+        /*Arrays.toString(userAccount.getRoleDtos().toArray()));*/
 
         model.addAttribute("message", "Inscription réussie : ");
         model.addAttribute("userAccount", newUser);

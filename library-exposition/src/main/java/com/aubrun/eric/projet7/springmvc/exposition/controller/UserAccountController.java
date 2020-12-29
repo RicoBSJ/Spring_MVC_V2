@@ -22,4 +22,12 @@ public class UserAccountController {
     public String showSignIn() {
         return "../include/signInForm";
     }
+
+    /*@ModelAttribute("rolesList")
+    public Map<Integer, ERole> getRolesList() {
+        Map<Integer, ERole> rolesList = new HashMap<Integer, ERole>();
+        rolesList.put(2, );
+        rolesList.put();
+        return rolesList;
+    }*/
 }

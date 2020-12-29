@@ -10,7 +10,7 @@ public class UserAccount {
     private String email;
     private String password;
     private List<Borrowing> borrowingList;
-    private Set<Role> roles;
+    private Set<Role> roleDtos;
 
     public Long getUserId() {
         return userId;
@@ -53,10 +53,10 @@ public class UserAccount {
     }
 
     public Set<Role> getRoleDtos() {
-        return roles;
+        return roleDtos;
     }
 
-    public void setRoleDtos(Set<Role> roles) {
-        this.roles = roles;
+    public void setRoleDtos(Set<Role> roleDtos) {
+        this.roleDtos = roleDtos;
     }
 }
