@@ -7,12 +7,13 @@ import com.aubrun.eric.projet7.springmvc.model.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.Arrays;
 import java.util.List;
 
 @Controller
+@SessionAttributes("userAccount")
 public class HomeController {
 
     private final BookService bookService;
@@ -81,13 +82,15 @@ public class HomeController {
     }
 
     @PostMapping("/home/login")
-    public String connectUser(@ModelAttribute("userAccount") UserAccount userAccount, Model model) {
+    public String connectUser(@ModelAttribute("userAccount") UserAccount userAccount, Model model, WebRequest request) {
 
         UserAccount currentUser = userAccountService.connectUser(userAccount).getBody();
 
         System.out.println("Username : " + userAccount.getUsername());
         System.out.println("Password : " + userAccount.getPassword());
         System.out.println("Id : " + userAccount.getUserId());
+
+        request.setAttribute("connected", true, WebRequest.SCOPE_SESSION);
 
         model.addAttribute("message", "Connexion réussie : ");
         model.addAttribute("userAccount", currentUser);

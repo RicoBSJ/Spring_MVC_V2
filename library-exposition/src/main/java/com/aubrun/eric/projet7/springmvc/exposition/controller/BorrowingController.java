@@ -21,44 +21,16 @@ public class BorrowingController {
         this.borrowingService = borrowingService;
     }
 
-    /*@ModelAttribute(value = "borrowing")
+    @ModelAttribute(value = "borrowing")
     public Borrowing setBorrowing() {
         return new Borrowing();
-    }*/
+    }
 
-    @RequestMapping(value = "/borrowing", method = RequestMethod.GET)
+    @GetMapping(value = "/borrowing")
     public String printAllBorrowings(ModelMap modelMap) {
 
         Borrowings borrowings = borrowingService.getAllBorrowing().getBody();
         modelMap.addAttribute("borrowings" , borrowings);
-        return "/borrowing";
-    }
-
-    /*@GetMapping("/borrowing")
-    public ModelAndView showForm() {
-        return new ModelAndView("home", "borrowing", new Borrowing());
-    }*/
-
-    /*@GetMapping("/home")
-    public String printAllBorrowing(ModelMap modelMap) {
-
-        Borrowing borrowing = borrowingService.getAllBorrowing().getBody();
-        modelMap.addAttribute("borrowing" , borrowing);
-        return "home";
-    }*/
-
-    @PostMapping(value = "/borrowing")
-    private String searchBorrowing(@ModelAttribute("borrowing") Borrowing borrowing, ModelMap model) {
-
-        model.addAttribute("bookBorrowing : ", borrowing.getBookBorrowing());
-        model.addAttribute("userAccountBorrowing : ", borrowing.getUserAccountBorrowing());
-        model.addAttribute("beginDate : ", borrowing.getBeginDate());
-        model.addAttribute("endDate : ", borrowing.getEndDate());
-        model.addAttribute("renewal : ", borrowing.getRenewal());
-        model.addAttribute("borrowingId : ", borrowing.getBorrowingId());
-
-        borrowingMap.put(borrowing.getBorrowingId(), borrowing);
-
         return "/borrowing";
     }
 }

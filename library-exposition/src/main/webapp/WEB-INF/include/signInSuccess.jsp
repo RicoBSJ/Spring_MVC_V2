@@ -28,6 +28,7 @@
         </p>
         <br/>
     </div>
+            <a href="<c:url value="../deconnect"/>" >Deconnexion</a>
 </div>
 </body>
 </html>

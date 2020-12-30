@@ -43,10 +43,10 @@
                 <td>${book.bookAuthor.lastName}</td>
                 <td>${book.quantity}</td>
                 <td><c:if test="${book.quantity != 0 && book.quantity == 3}">
-                    <a href="<c:url value="./home/borrowing" />">Emprunt</a>
+                    <a href="<c:url value="./home/borrowing/${book.bookId}" />">Emprunt</a>
                 </c:if>
                 <c:if test="${book.quantity != 0 && book.quantity < 3}">
-                    <a href="<c:url value="./home/borrowing" />">Emprunté</a>
+                    <a href="<c:url value="./home/borrowing/${book.bookId}" />">Emprunté</a>
                 </c:if>
                 <c:if test="${book.quantity == 0}">
                     <a href="<c:url value=" " />">Non empruntable</a>

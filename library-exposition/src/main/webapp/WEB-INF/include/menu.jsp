@@ -29,6 +29,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="<c:url value="./signInForm" />">Connexion</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<c:url value="./deconnect" />">Déconnexion</a>
+                </li>
             </ul>
         </div>
     </nav>
