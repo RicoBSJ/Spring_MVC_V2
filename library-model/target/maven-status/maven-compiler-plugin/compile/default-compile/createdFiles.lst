@@ -6,6 +6,7 @@ com/aubrun/eric/projet7/springmvc/model/Borrowing.class
 com/aubrun/eric/projet7/springmvc/model/Authors.class
 com/aubrun/eric/projet7/springmvc/model/Author.class
 com/aubrun/eric/projet7/springmvc/model/Books.class
+com/aubrun/eric/projet7/springmvc/model/Borrowings.class
 com/aubrun/eric/projet7/springmvc/model/Role.class
 com/aubrun/eric/projet7/springmvc/model/Book.class
 com/aubrun/eric/projet7/springmvc/model/Category.class

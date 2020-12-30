@@ -2,6 +2,7 @@ package com.aubrun.eric.projet7.springmvc.business.service;
 
 import com.aubrun.eric.projet7.springmvc.consumer.BorrowingConsumer;
 import com.aubrun.eric.projet7.springmvc.model.Borrowing;
+import com.aubrun.eric.projet7.springmvc.model.Borrowings;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,12 +17,12 @@ public class BorrowingService {
         this.borrowingConsumer = borrowingConsumer;
     }
 
-    public ResponseEntity<Borrowing> getAllBorrowing(){
+    public ResponseEntity<Borrowings> getAllBorrowing(){
 
         return borrowingConsumer.getBorrowing();
     }
 
-    public ResponseEntity<Borrowing> addBorrow(Borrowing borrowing) {
+    public ResponseEntity<Borrowings> addBorrow(Borrowing borrowing) {
 
         return borrowingConsumer.addBorrowing(borrowing);
     }

@@ -46,7 +46,7 @@ public class HomeController {
     @PostMapping("/home/borrowing")
     public String borrowing(@ModelAttribute("newBorrowing") Borrowing borrowing, Model model) {
 
-        Borrowing newBorrowing = borrowingService.addBorrow(borrowing).getBody();
+        Borrowings newBorrowing = borrowingService.addBorrow(borrowing).getBody();
 
         System.out.println("bookBorrowing : " + borrowing.getBookBorrowing());
         System.out.println("userAccountBorrowing : " + borrowing.getUserAccountBorrowing());
