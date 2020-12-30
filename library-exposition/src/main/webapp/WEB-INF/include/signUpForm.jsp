@@ -40,13 +40,13 @@
                 <br/>
             </div>
             <div class="col-sm-6">
-                <%--<td><form:label path = "roleDtos">Roles</form:label></td>
+                <td><form:label path="roleDtos">Roles</form:label></td>
                 <td>
-                    <form:select path = "roleDtos">
-                        <form:option value = "NONE" label = "Select"/>
-                        <form:options items = "${rolesList}" />
+                    <form:select path="roleDtos">
+                        <form:option value="NONE" label="Select"/>
+                        <form:options items="${rolesList}"/>
                     </form:select>
-                </td>--%>
+                </td>
             </div>
         </div>
         <form:hidden path="userId" value="1"/>
