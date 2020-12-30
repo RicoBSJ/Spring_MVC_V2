@@ -63,7 +63,7 @@ public class HomeController {
     }
 
     @PostMapping("/home/registration")
-    public String registrationUser(@ModelAttribute("userAccount") UserAccount userAccount, Model model) {
+    public ModelAndView registrationUser(@ModelAttribute("userAccount") UserAccount userAccount) {
 
         UserAccount newUser = userAccountService.addUser(userAccount).getBody();
 
@@ -75,10 +75,11 @@ public class HomeController {
 
         /*Arrays.toString(userAccount.getRoleDtos().toArray()));*/
 
-        model.addAttribute("message", "Inscription réussie : ");
-        model.addAttribute("userAccount", newUser);
-
-        return "../include/signUpSuccess";
+        ModelAndView modelAndView = new ModelAndView("../include/signUpSuccess");
+        /*modelAndView.addObject("userAccount", newUser);*/
+        modelAndView.addObject("message", "Inscription réussie : ");
+        modelAndView.addObject("userName", userAccount.getUsername());
+        return modelAndView;
     }
 
     @PostMapping("/home/login")

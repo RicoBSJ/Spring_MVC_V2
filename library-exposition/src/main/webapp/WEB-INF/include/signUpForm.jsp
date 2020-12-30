@@ -39,15 +39,6 @@
                 <form:password path="password" placeholder="Entrez votre mot de passe"/>
                 <br/>
             </div>
-            <div class="col-sm-6">
-                <td><form:label path="roleDtos">Roles</form:label></td>
-                <td>
-                    <form:select path="roleDtos">
-                        <form:option value="NONE" label="Select"/>
-                        <form:options items="${rolesList}"/>
-                    </form:select>
-                </td>
-            </div>
         </div>
         <form:hidden path="userId" value="1"/>
         <br/>

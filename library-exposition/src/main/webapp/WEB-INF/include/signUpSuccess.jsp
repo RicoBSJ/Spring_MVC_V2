@@ -19,14 +19,14 @@
 
         <table class="table table-striped table-bordered">
             <tr>
-                <td><b>Name </b>: ${userAccount.username}</td>
+                <td><b>Name </b>: ${userName}</td>
             </tr>
-            <tr>
+            <%--<tr>
                 <td><b>Email </b>: ${userAccount.email}</td>
             </tr>
             <tr>
                 <td><b>Role </b> : ${userAccount.roleDtos}</td>
-            </tr>
+            </tr>--%>
         </table>
         <br/>
         <p>
