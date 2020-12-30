@@ -75,7 +75,7 @@ public class HomeController {
 
         /*Arrays.toString(userAccount.getRoleDtos().toArray()));*/
 
-        ModelAndView modelAndView = new ModelAndView("../include/signUpSuccess");
+        ModelAndView modelAndView = new ModelAndView("signUpSuccess");
         /*modelAndView.addObject("userAccount", newUser);*/
         modelAndView.addObject("message", "Inscription réussie : ");
         modelAndView.addObject("userName", userAccount.getUsername());
@@ -96,6 +96,6 @@ public class HomeController {
         model.addAttribute("message", "Connexion réussie : ");
         model.addAttribute("userAccount", currentUser);
 
-        return "../include/signInSuccess";
+        return "signInSuccess";
     }
 }
