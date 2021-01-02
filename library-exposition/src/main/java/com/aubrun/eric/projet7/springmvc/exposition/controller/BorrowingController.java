@@ -8,14 +8,10 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.HashMap;
-import java.util.Map;
-
 @Controller
 public class BorrowingController {
 
     private final BorrowingService borrowingService;
-    private final Map<Integer, Borrowing> borrowingMap = new HashMap<>();
 
     public BorrowingController(BorrowingService borrowingService) {
         this.borrowingService = borrowingService;
@@ -26,11 +22,17 @@ public class BorrowingController {
         return new Borrowing();
     }
 
-    @GetMapping(value = "/borrowing")
+    @GetMapping(value = "/home")
     public String printAllBorrowings(ModelMap modelMap) {
 
         Borrowings borrowings = borrowingService.getAllBorrowing().getBody();
-        modelMap.addAttribute("borrowings" , borrowings);
-        return "/borrowing";
+        modelMap.addAttribute("borrowings", borrowings);
+        return "/home";
     }
+
+    /*@GetMapping("/home")
+    public ModelAndView showForm() {
+
+        return new ModelAndView("/home", "borrowings", new Borrowings());
+    }*/
 }
