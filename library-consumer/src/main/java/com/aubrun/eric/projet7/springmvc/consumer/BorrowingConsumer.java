@@ -4,6 +4,7 @@ import com.aubrun.eric.projet7.springmvc.model.Borrowing;
 import com.aubrun.eric.projet7.springmvc.model.Borrowings;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.client.RestTemplate;
 
 @Component

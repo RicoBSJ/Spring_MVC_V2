@@ -3,6 +3,7 @@ package com.aubrun.eric.projet7.springmvc.exposition.controller;
 import com.aubrun.eric.projet7.springmvc.business.service.BookService;
 import com.aubrun.eric.projet7.springmvc.model.Book;
 import com.aubrun.eric.projet7.springmvc.model.Books;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -26,6 +27,14 @@ public class BookController {
     public String printAllBooks(ModelMap modelMap) {
 
         Books books = bookService.findBooks().getBody();
+        modelMap.addAttribute("books" , books);
+        return "/book";
+    }
+
+    @GetMapping(value = "/book/{id}")
+    public String printBooks(@PathVariable(value = "id") int bookId, ModelMap modelMap) {
+
+        ResponseEntity<Books> books = bookService.getBook(bookId);
         modelMap.addAttribute("books" , books);
         return "/book";
     }

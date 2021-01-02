@@ -21,4 +21,8 @@ public class UserAccountConsumer {
     public ResponseEntity<UserAccount> addConnectedUser(UserAccount userAccount){
         return restTemplate.postForEntity("http://localhost:8081/biblio-api/api/auth/signin", userAccount, UserAccount.class);
     }
+
+    public ResponseEntity<UserAccount> userById(int userId){
+        return restTemplate.getForEntity("http://localhost:8081/biblio-api/users/{userId}", UserAccount.class);
+    }
 }

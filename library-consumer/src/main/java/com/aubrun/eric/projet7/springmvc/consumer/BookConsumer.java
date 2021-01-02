@@ -22,4 +22,8 @@ public class BookConsumer {
     public ResponseEntity<Books> searchBook(SearchBook searchBook){
         return restTemplate.postForEntity("http://localhost:8081/biblio-api/books/search/", searchBook, Books.class);
     }
+
+    public ResponseEntity<Books> getBooksById(int bookId){
+        return restTemplate.getForEntity("http://localhost:8081/biblio-api/books/{bookId}", Books.class);
+    }
 }
