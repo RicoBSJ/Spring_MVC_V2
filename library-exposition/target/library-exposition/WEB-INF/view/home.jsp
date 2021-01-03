@@ -30,6 +30,7 @@
     <br/>
     <table class="table" border="2" width="70%" cellpadding="2">
         <tr>
+            <th>Id</th>
             <th>Titre</th>
             <th>Auteur</th>
             <th>Nombre d'exemplaire</th>
@@ -37,18 +38,13 @@
         </tr>
         <c:forEach var="book" items="${books}">
             <tr class="table">
+                <td>${book.bookId}</td>
                 <td>${book.title}</td>
                 <td>${book.bookAuthor.lastName}</td>
                 <td>${book.quantity}</td>
-                <td><c:if test="${book.quantity != 0 && book.quantity == 3}">
-                    <a href="<c:url value="./home/borrowing" />">Emprunt</a>
-                </c:if>
-                <c:if test="${book.quantity != 0 && book.quantity < 3}">
-                    <a href="<c:url value="./home/borrowing" />">Emprunté</a>
-                </c:if>
-                <c:if test="${book.quantity == 0}">
-                    <a href="<c:url value=" " />">Non empruntable</a>
-                </c:if>
+                <td><form:form method="post" action="/library_exposition_war_exploded/home/borrowing">
+                    <input type="submit" value="Emprunt"/>
+                </form:form>
                 </td>
             </tr>
         </c:forEach>

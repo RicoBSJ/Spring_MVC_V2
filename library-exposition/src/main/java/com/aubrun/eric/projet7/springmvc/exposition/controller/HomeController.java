@@ -6,11 +6,16 @@ import com.aubrun.eric.projet7.springmvc.business.service.UserAccountService;
 import com.aubrun.eric.projet7.springmvc.model.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.validation.Valid;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @SessionAttributes("userAccount")
@@ -44,7 +49,7 @@ public class HomeController {
         return modelAndView;
     }
 
-    @PostMapping("/home/borrowing")
+    /*@PostMapping("/home/borrowing")
     public String borrowing(@ModelAttribute("newBorrowing") Borrowing borrowing, Model model) {
 
         Borrowings newBorrowing = borrowingService.addBorrow(borrowing).getBody();
@@ -59,8 +64,8 @@ public class HomeController {
         model.addAttribute("message", "Emprunt réussi : ");
         model.addAttribute("borrowing", newBorrowing);
 
-        return "home";
-    }
+        return "redirect:home";
+    }*/
 
     @PostMapping("/home/registration")
     public ModelAndView registrationUser(@ModelAttribute("userAccount") UserAccount userAccount) {
@@ -72,8 +77,6 @@ public class HomeController {
         System.out.println("Email : " + userAccount.getEmail());
         System.out.println("Role : " + userAccount.getRoleDtos());
         System.out.println("Id : " + userAccount.getUserId());
-
-        /*Arrays.toString(userAccount.getRoleDtos().toArray()));*/
 
         ModelAndView modelAndView = new ModelAndView("signUpSuccess");
         /*modelAndView.addObject("userAccount", newUser);*/
