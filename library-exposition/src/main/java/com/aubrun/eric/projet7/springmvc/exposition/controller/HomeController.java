@@ -49,7 +49,7 @@ public class HomeController {
         return modelAndView;
     }
 
-    /*@PostMapping("/home/borrowing")
+    @PostMapping("/home/borrowing")
     public String borrowing(@ModelAttribute("newBorrowing") Borrowing borrowing, Model model) {
 
         Borrowings newBorrowing = borrowingService.addBorrow(borrowing).getBody();
@@ -65,7 +65,7 @@ public class HomeController {
         model.addAttribute("borrowing", newBorrowing);
 
         return "redirect:home";
-    }*/
+    }
 
     @PostMapping("/home/registration")
     public ModelAndView registrationUser(@ModelAttribute("userAccount") UserAccount userAccount) {

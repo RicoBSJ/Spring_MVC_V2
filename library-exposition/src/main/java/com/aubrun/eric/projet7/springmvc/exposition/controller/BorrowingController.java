@@ -29,42 +29,13 @@ public class BorrowingController {
         return new Borrowings();
     }
 
-    /*@GetMapping(value = "borrowing")
-    public String printAllBorrowings(ModelMap modelMap) {
-
-        Borrowings borrowings = borrowingService.getAllBorrowing().getBody();
-        modelMap.addAttribute("borrowing", borrowings);
-        return "./home";
-    }*/
-
     @GetMapping("/borrowing")
     public ModelAndView showForm() {
 
         return new ModelAndView("/home", "borrowing", new Borrowings());
     }
 
-    /*@RequestMapping(value = "/borrowing", method = RequestMethod.GET)
-    public ModelAndView showForm() {
-        return new ModelAndView("home", "borrowing", new Borrowings());
-    }*/
-
-    /*@RequestMapping(value = "/home/borrowing", method = RequestMethod.POST)
-    public String borrowing(@Valid @ModelAttribute("borrowing")Borrowing borrowing, BindingResult result, ModelMap model) {
-
-        if (result.hasErrors()) {
-            return "error";
-        }
-        model.addAttribute("bookBorrowing : " + borrowing.getBookBorrowing());
-        model.addAttribute("userAccountBorrowing : " + borrowing.getUserAccountBorrowing());
-        model.addAttribute("beginDate : " + borrowing.getBeginDate());
-        model.addAttribute("endDate : " + borrowing.getEndDate());
-        model.addAttribute("renewal : " + borrowing.getRenewal());
-        model.addAttribute("borrowingId : " + borrowing.getBorrowingId());
-        borrowingMap.put(borrowing.getBorrowingId(), borrowing);
-        return "redirect:home";
-    }*/
-
-    @PostMapping("/home/borrowing")
+    /*@PostMapping("/home/borrowing")
     public String borrowing(@ModelAttribute("newBorrowing") Borrowing borrowing, Model model) {
 
         Borrowings newBorrowing = borrowingService.addBorrow(borrowing).getBody();
@@ -80,5 +51,5 @@ public class BorrowingController {
         model.addAttribute("borrowing", newBorrowing);
 
         return "redirect:home";
-    }
+    }*/
 }
