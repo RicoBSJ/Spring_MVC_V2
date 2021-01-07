@@ -41,7 +41,7 @@
                 <td>${book.bookAuthor.lastName}</td>
                 <td>${book.quantity}</td>
                 <td><c:if test="${book.quantity != 0 && book.quantity == 3}">
-                        <a href="<c:url value="${borrowing}" />">Emprunt</a>
+                        <a href="<c:url value="/home/borrowing/${book.bookId}" />">Emprunt</a>
                     </c:if>
                     <%--<c:if test="${book.quantity != 0 && book.quantity < 3}">
                         <form:form modelAttribute="borrowing" action="/library_exposition_war_exploded/home/borrowing" method="post">

@@ -41,20 +41,15 @@
                 <td>${book.bookAuthor.lastName}</td>
                 <td>${book.quantity}</td>
                 <td><c:if test="${book.quantity != 0 && book.quantity == 3}">
-                        <a href="<c:url value="${borrowing}" />">Emprunt</a>
+                        <a href="<c:url value="/home/borrowing/${book.bookId}" />">Emprunt</a>
                     </c:if>
-                    <c:if test="${book.quantity != 0 && book.quantity < 3}">
+                    <%--<c:if test="${book.quantity != 0 && book.quantity < 3}">
                         <form:form modelAttribute="borrowing" action="/library_exposition_war_exploded/home/borrowing" method="post">
                             <input type="hidden" value="${ book.bookId }" name="bookId">
                             <input type="hidden" value="${ userAccount.userId }" name="userId">
                             <input type="submit" name="tag" value="Emprunté" />
                         </form:form>
-                    </c:if>
-                    <c:if test="${book.quantity == 0}">
-                        <form:form modelAttribute="borrowing" action="/library_exposition_war_exploded/home/borrowing" method="post">
-                            <input type="submit" name="tag" value="Non empruntable" />
-                        </form:form>
-                    </c:if>
+                    </c:if>--%>
                 </td>
             </tr>
         </c:forEach>

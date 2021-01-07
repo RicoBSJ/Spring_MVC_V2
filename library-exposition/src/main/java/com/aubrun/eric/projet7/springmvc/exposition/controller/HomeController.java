@@ -49,12 +49,13 @@ public class HomeController {
         return modelAndView;
     }
 
-    @PostMapping("/home/borrowing")
-    public String borrowing(@ModelAttribute("newBorrowing") Borrowing borrowing, Model model) {
+    @PostMapping("/home/borrowing/{id}")
+    public String borrowing(@PathVariable(value = "id") int bookId, @ModelAttribute("newBorrowing") Borrowing borrowing, Model model) {
 
         Borrowings newBorrowing = borrowingService.addBorrow(borrowing).getBody();
+        Books books = bookService.getBook(bookId).getBody();
 
-        System.out.println("bookBorrowing : " + borrowing.getBookBorrowing());
+        System.out.println("bookBorrowing : " + borrowing.getBookBorrowing().getBookId());
         System.out.println("userAccountBorrowing : " + borrowing.getUserAccountBorrowing());
         System.out.println("beginDate : " + borrowing.getBeginDate());
         System.out.println("endDate : " + borrowing.getEndDate());
