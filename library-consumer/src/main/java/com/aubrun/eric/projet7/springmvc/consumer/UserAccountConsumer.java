@@ -25,19 +25,23 @@ public class UserAccountConsumer {
     }*/
 
     public ResponseEntity<UserAccount> addUserAccount(UserAccount userAccount) {
+        Object branch;
+        Object internalCode;
+        Object hierarchy;
         String accessToken = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtb2QiLCJpYXQiOjE2MTAyMzIyMjIsImV4cCI6MTYxMDMxODYyMn0.lfrryLWk9Z5fTmT19XAEDClrO2c-KvFQ8zQJkmOShK-9wOZjV6-3O_wo0qaL5UkDkMcoBDPebPL_hWQSjXY7fw";
+
         HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", "Bearer" + accessToken);
-        HttpEntity<HttpHeaders> entity = new HttpEntity<HttpHeaders>(headers);
+        HttpEntity<HttpHeaders> entity = new HttpEntity<>(headers);
 
-        UriComponentsBuilder builder = UriComponentsBuilder.fromHttpRequest(
+        UriComponentsBuilder builder = UriComponentsBuilder.fromPath(
                 .queryParam("branch", branch)
                 .queryParam("customerInternalCode", internalCode)
-                .queryParam("hierarchy", hierarchy);
+                .queryParam("hierarchy", hierarchy);)
 
-        return Optional.ofNullable(restTemplate.exchange(builder))
-        HttpMethod.GET, entity,
-                CustomerRegistrationDTO.class).getBody());
+        return Optional.ofNullable(restTemplate.exchange(builder)
+                HttpMethod.GET, entity,
+                CustomerRegistrationDTO.class).getBody();
     }
 
     public ResponseEntity<UserAccount> addConnectedUser(UserAccount userAccount) {
