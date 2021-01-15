@@ -3,8 +3,10 @@ import com.aubrun.eric.projet7.springmvc.business.service.BookService;
 import com.aubrun.eric.projet7.springmvc.business.service.BorrowingService;
 import com.aubrun.eric.projet7.springmvc.business.service.UserAccountService;
 import com.aubrun.eric.projet7.springmvc.model.*;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
@@ -41,7 +43,7 @@ public class HomeController {
 
     @PostMapping("/home/borrowing")
     public String borrowing(@ModelAttribute("newBorrowing") Borrowing borrowing, Model model) {
-        Borrowings newBorrowing = borrowingService.addBorrow(borrowing).getBody();
+        borrowingService.addBorrow(borrowing);
         System.out.println("bookBorrowing : " + borrowing.getBookBorrowing());
         System.out.println("userAccountBorrowing : " + borrowing.getUserAccountBorrowing());
         System.out.println("beginDate : " + borrowing.getBeginDate());
@@ -49,7 +51,6 @@ public class HomeController {
         System.out.println("renewal : " + borrowing.getRenewal());
         System.out.println("borrowingId : " + borrowing.getBorrowingId());
         model.addAttribute("message", "Emprunt réussi : ");
-        model.addAttribute("borrowing", newBorrowing);
         return "home";
     }
 
@@ -71,7 +72,7 @@ public class HomeController {
         return modelAndView;
     }
 
-    @PostMapping("/home/login")
+    /*@PostMapping("/home/login")
     public String connectUser(@ModelAttribute("userAccount") UserAccount userAccount, Model model, WebRequest request) {
         UserAccount currentUser = userAccountService.connectUser(userAccount).getBody();
         System.out.println("Username : " + userAccount.getUsername());
@@ -81,5 +82,12 @@ public class HomeController {
         model.addAttribute("message", "Connexion réussie : ");
         model.addAttribute("userAccount", currentUser);
         return "../include/signInSuccess";
+    }*/
+
+    @PostMapping(value = "/login")
+    public String login(@ModelAttribute CredentialStorage credentialStorage, ModelMap modelMap){
+        System.out.println(credentialStorage);
+        userAccountService.login(credentialStorage);
+        return "/home";
     }
 }

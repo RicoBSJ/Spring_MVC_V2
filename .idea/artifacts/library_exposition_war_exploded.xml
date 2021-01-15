@@ -20,6 +20,11 @@
           <element id="archive" name="library-consumer-1.0-SNAPSHOT.jar">
             <element id="module-output" name="library-consumer" />
           </element>
+          <element id="library" level="project" name="Maven: javax.servlet:jstl:1.2" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-tx:5.3.1" />
+          <element id="archive" name="library-model-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="library-model" />
+          </element>
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-web:2.3.5.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter:2.3.5.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-logging:2.3.5.RELEASE" />
@@ -41,11 +46,6 @@
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-tomcat:2.3.5.RELEASE" />
           <element id="library" level="project" name="Maven: org.glassfish:jakarta.el:3.0.3" />
           <element id="library" level="project" name="Maven: org.apache.tomcat.embed:tomcat-embed-websocket:9.0.39" />
-          <element id="library" level="project" name="Maven: javax.servlet:jstl:1.2" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-tx:5.3.1" />
-          <element id="archive" name="library-model-1.0-SNAPSHOT.jar">
-            <element id="module-output" name="library-model" />
-          </element>
           <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:5.3.1" />
           <element id="library" level="project" name="Maven: org.springframework:spring-aop:5.3.1" />
           <element id="library" level="project" name="Maven: org.springframework:spring-beans:5.3.1" />

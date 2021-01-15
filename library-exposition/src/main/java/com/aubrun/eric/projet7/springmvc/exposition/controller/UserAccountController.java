@@ -50,12 +50,4 @@ public class UserAccountController {
         modelMap.addAttribute("userAccountResponseEntity", userAccountResponseEntity);
         return "/home";
     }
-
-    @PostMapping(value = "/login")
-    public String login(@ModelAttribute CredentialStorage credentialStorage, ModelMap modelMap){
-        System.out.println(credentialStorage);
-        ResponseEntity<JwtResponse> userAccountResponseEntity = userAccountService.login(credentialStorage);
-        System.out.println(userAccountResponseEntity);
-        return "/home";
-    }
 }
