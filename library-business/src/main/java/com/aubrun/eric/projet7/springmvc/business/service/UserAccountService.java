@@ -1,6 +1,8 @@
 package com.aubrun.eric.projet7.springmvc.business.service;
 
 import com.aubrun.eric.projet7.springmvc.consumer.UserAccountConsumer;
+import com.aubrun.eric.projet7.springmvc.model.CredentialStorage;
+import com.aubrun.eric.projet7.springmvc.model.JwtResponse;
 import com.aubrun.eric.projet7.springmvc.model.UserAccount;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -29,5 +31,9 @@ public class UserAccountService {
     public ResponseEntity<UserAccount> addUserById(int userId) {
 
         return userAccountConsumer.userById(userId);
+    }
+
+    public ResponseEntity<JwtResponse> login(CredentialStorage credentialStorage) {
+        return userAccountConsumer.login(credentialStorage);
     }
 }

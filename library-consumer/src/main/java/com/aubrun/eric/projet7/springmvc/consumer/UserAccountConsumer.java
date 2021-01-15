@@ -1,5 +1,7 @@
 package com.aubrun.eric.projet7.springmvc.consumer;
 
+import com.aubrun.eric.projet7.springmvc.model.CredentialStorage;
+import com.aubrun.eric.projet7.springmvc.model.JwtResponse;
 import com.aubrun.eric.projet7.springmvc.model.UserAccount;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -13,18 +15,16 @@ import java.util.Optional;
 
 @Component
 public class UserAccountConsumer {
-
     private final RestTemplate restTemplate;
 
     public UserAccountConsumer(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
     }
-
-    /*public ResponseEntity<UserAccount> addUserAccount(UserAccount userAccount){
+    public ResponseEntity<UserAccount> addUserAccount(UserAccount userAccount){
         return restTemplate.postForEntity("http://localhost:8081/biblio-api/api/auth/signup", userAccount, UserAccount.class);
-    }*/
+    }
 
-    public ResponseEntity<UserAccount> addUserAccount(UserAccount userAccount) {
+    /*public ResponseEntity<UserAccount> addUserAccount(UserAccount userAccount) {
         Object branch;
         Object internalCode;
         Object hierarchy;
@@ -33,16 +33,14 @@ public class UserAccountConsumer {
         HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", "Bearer" + accessToken);
         HttpEntity<HttpHeaders> entity = new HttpEntity<>(headers);
-
         UriComponentsBuilder builder = UriComponentsBuilder.fromPath(
                 .queryParam("branch", branch)
                 .queryParam("customerInternalCode", internalCode)
                 .queryParam("hierarchy", hierarchy);)
-
         return Optional.ofNullable(restTemplate.exchange(builder)
                 HttpMethod.GET, entity,
                 CustomerRegistrationDTO.class).getBody();
-    }
+    }*/
 
     public ResponseEntity<UserAccount> addConnectedUser(UserAccount userAccount) {
         return restTemplate.postForEntity("http://localhost:8081/biblio-api/api/auth/signin", userAccount, UserAccount.class);
@@ -50,5 +48,9 @@ public class UserAccountConsumer {
 
     public ResponseEntity<UserAccount> userById(int userId) {
         return restTemplate.getForEntity("http://localhost:8081/biblio-api/users/{userId}", UserAccount.class);
+    }
+
+    public ResponseEntity<JwtResponse> login(CredentialStorage credentialStorage) {
+        return restTemplate.postForEntity("http://localhost:8081/biblio-api/api/auth/signin", credentialStorage, JwtResponse.class);
     }
 }

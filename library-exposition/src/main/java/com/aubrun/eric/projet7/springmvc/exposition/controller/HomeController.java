@@ -1,26 +1,17 @@
 package com.aubrun.eric.projet7.springmvc.exposition.controller;
-
 import com.aubrun.eric.projet7.springmvc.business.service.BookService;
 import com.aubrun.eric.projet7.springmvc.business.service.BorrowingService;
 import com.aubrun.eric.projet7.springmvc.business.service.UserAccountService;
 import com.aubrun.eric.projet7.springmvc.model.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
-
-import javax.validation.Valid;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
 @Controller
 @SessionAttributes("userAccount")
 public class HomeController {
-
     private final BookService bookService;
     private final BorrowingService borrowingService;
     private final UserAccountService userAccountService;
@@ -42,30 +33,24 @@ public class HomeController {
 
     @PostMapping(value = "/home/search")
     private ModelAndView searchBookSubmit(@ModelAttribute("searchBook") SearchBook searchBook) {
-
         List<Book> result = bookService.searchBook(searchBook).getBody();
         ModelAndView modelAndView = new ModelAndView("/home", "searchBook", new SearchBook());
         modelAndView.addObject("books", result);
         return modelAndView;
     }
 
-    @PostMapping("/home/borrowing/{id}")
-    public String borrowing(@PathVariable(value = "id") int bookId, @ModelAttribute("newBorrowing") Borrowing borrowing, Model model) {
-
+    @PostMapping("/home/borrowing")
+    public String borrowing(@ModelAttribute("newBorrowing") Borrowing borrowing, Model model) {
         Borrowings newBorrowing = borrowingService.addBorrow(borrowing).getBody();
-        Books books = bookService.getBook(bookId).getBody();
-
-        System.out.println("bookBorrowing : " + borrowing.getBookBorrowing().getBookId());
+        System.out.println("bookBorrowing : " + borrowing.getBookBorrowing());
         System.out.println("userAccountBorrowing : " + borrowing.getUserAccountBorrowing());
         System.out.println("beginDate : " + borrowing.getBeginDate());
         System.out.println("endDate : " + borrowing.getEndDate());
         System.out.println("renewal : " + borrowing.getRenewal());
         System.out.println("borrowingId : " + borrowing.getBorrowingId());
-
         model.addAttribute("message", "Emprunt réussi : ");
         model.addAttribute("borrowing", newBorrowing);
-
-        return "redirect:home";
+        return "home";
     }
 
     @PostMapping("/home/registration")
@@ -79,7 +64,7 @@ public class HomeController {
         System.out.println("Role : " + userAccount.getRoleDtos());
         System.out.println("Id : " + userAccount.getUserId());
 
-        ModelAndView modelAndView = new ModelAndView("signUpSuccess");
+        ModelAndView modelAndView = new ModelAndView("../include/signUpSuccess");
         /*modelAndView.addObject("userAccount", newUser);*/
         modelAndView.addObject("message", "Inscription réussie : ");
         modelAndView.addObject("userName", userAccount.getUsername());
@@ -88,18 +73,13 @@ public class HomeController {
 
     @PostMapping("/home/login")
     public String connectUser(@ModelAttribute("userAccount") UserAccount userAccount, Model model, WebRequest request) {
-
         UserAccount currentUser = userAccountService.connectUser(userAccount).getBody();
-
         System.out.println("Username : " + userAccount.getUsername());
         System.out.println("Password : " + userAccount.getPassword());
         System.out.println("Id : " + userAccount.getUserId());
-
         request.setAttribute("connected", true, WebRequest.SCOPE_SESSION);
-
         model.addAttribute("message", "Connexion réussie : ");
         model.addAttribute("userAccount", currentUser);
-
-        return "signInSuccess";
+        return "../include/signInSuccess";
     }
 }

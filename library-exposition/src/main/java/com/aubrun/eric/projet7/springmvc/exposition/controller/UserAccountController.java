@@ -1,14 +1,13 @@
 package com.aubrun.eric.projet7.springmvc.exposition.controller;
 
 import com.aubrun.eric.projet7.springmvc.business.service.UserAccountService;
+import com.aubrun.eric.projet7.springmvc.model.CredentialStorage;
+import com.aubrun.eric.projet7.springmvc.model.JwtResponse;
 import com.aubrun.eric.projet7.springmvc.model.UserAccount;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.WebRequest;
 
 @Controller
@@ -32,7 +31,8 @@ public class UserAccountController {
     }
 
     @GetMapping("/signInForm")
-    public String showSignIn() {
+    public String showSignIn(ModelMap modelMap) {
+        modelMap.addAttribute("credentialStorage", new CredentialStorage());
         return "signInForm";
     }
 
@@ -47,7 +47,15 @@ public class UserAccountController {
     public String userById(@PathVariable(value = "id") int userId, ModelMap modelMap) {
 
         ResponseEntity<UserAccount> userAccountResponseEntity = userAccountService.addUserById(userId);
-        modelMap.addAttribute("userAccountResponseEntity" , userAccountResponseEntity);
+        modelMap.addAttribute("userAccountResponseEntity", userAccountResponseEntity);
+        return "/home";
+    }
+
+    @PostMapping(value = "/login")
+    public String login(@ModelAttribute CredentialStorage credentialStorage, ModelMap modelMap){
+        System.out.println(credentialStorage);
+        ResponseEntity<JwtResponse> userAccountResponseEntity = userAccountService.login(credentialStorage);
+        System.out.println(userAccountResponseEntity);
         return "/home";
     }
 }
