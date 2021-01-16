@@ -5,7 +5,7 @@
   Time: 00:12
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
@@ -30,7 +30,7 @@
         </table>
         <br/>
         <p>
-            <a href="<c:url value="../signInForm"/>">Connexion</a>
+            <a href="<c:url value="./signInForm"/>">Connexion</a>
         </p>
         <p>
             <a href="<c:url value="/"/>">Retour à l'accueil</a>

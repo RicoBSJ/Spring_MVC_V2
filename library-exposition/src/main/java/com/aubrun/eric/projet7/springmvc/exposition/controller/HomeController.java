@@ -1,9 +1,9 @@
 package com.aubrun.eric.projet7.springmvc.exposition.controller;
+
 import com.aubrun.eric.projet7.springmvc.business.service.BookService;
 import com.aubrun.eric.projet7.springmvc.business.service.BorrowingService;
 import com.aubrun.eric.projet7.springmvc.business.service.UserAccountService;
 import com.aubrun.eric.projet7.springmvc.model.*;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
+
 @Controller
 @SessionAttributes("userAccount")
 public class HomeController {
@@ -65,29 +66,18 @@ public class HomeController {
         System.out.println("Role : " + userAccount.getRoleDtos());
         System.out.println("Id : " + userAccount.getUserId());
 
-        ModelAndView modelAndView = new ModelAndView("../include/signUpSuccess");
-        /*modelAndView.addObject("userAccount", newUser);*/
+        ModelAndView modelAndView = new ModelAndView("../view/signUpSuccess");
         modelAndView.addObject("message", "Inscription réussie : ");
         modelAndView.addObject("userName", userAccount.getUsername());
         return modelAndView;
     }
 
-    /*@PostMapping("/home/login")
-    public String connectUser(@ModelAttribute("userAccount") UserAccount userAccount, Model model, WebRequest request) {
-        UserAccount currentUser = userAccountService.connectUser(userAccount).getBody();
-        System.out.println("Username : " + userAccount.getUsername());
-        System.out.println("Password : " + userAccount.getPassword());
-        System.out.println("Id : " + userAccount.getUserId());
-        request.setAttribute("connected", true, WebRequest.SCOPE_SESSION);
-        model.addAttribute("message", "Connexion réussie : ");
-        model.addAttribute("userAccount", currentUser);
-        return "../include/signInSuccess";
-    }*/
-
     @PostMapping(value = "/login")
-    public String login(@ModelAttribute CredentialStorage credentialStorage, ModelMap modelMap){
+    public String login(@ModelAttribute("credentialStorage") CredentialStorage credentialStorage){
         System.out.println(credentialStorage);
         userAccountService.login(credentialStorage);
+        ModelAndView modelAndView = new ModelAndView("../view/signInSuccess");
+        modelAndView.addObject("message", "Inscription réussie : ");
         return "/home";
     }
 }

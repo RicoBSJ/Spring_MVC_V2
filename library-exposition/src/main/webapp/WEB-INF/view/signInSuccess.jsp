@@ -5,7 +5,7 @@
   Time: 00:14
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
@@ -19,7 +19,7 @@
 
         <table class="table table-striped table-bordered">
             <tr>
-                <td><b>Name </b>: ${userAccount.username}</td>
+                <td><b>Name </b>: ${credentialStorage.username}</td>
             </tr>
         </table>
         <br/>
@@ -28,7 +28,7 @@
         </p>
         <br/>
     </div>
-            <a href="<c:url value="../deconnect"/>" >Deconnexion</a>
+            <a href="<c:url value="./deconnect"/>" >Deconnexion</a>
 </div>
 </body>
 </html>

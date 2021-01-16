@@ -1,8 +1,6 @@
 package com.aubrun.eric.projet7.springmvc.exposition.controller;
 
 import com.aubrun.eric.projet7.springmvc.business.service.UserAccountService;
-import com.aubrun.eric.projet7.springmvc.model.CredentialStorage;
-import com.aubrun.eric.projet7.springmvc.model.JwtResponse;
 import com.aubrun.eric.projet7.springmvc.model.UserAccount;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -30,17 +28,11 @@ public class UserAccountController {
         return "signUpForm";
     }
 
-    @GetMapping("/signInForm")
-    public String showSignIn(ModelMap modelMap) {
-        modelMap.addAttribute("credentialStorage", new CredentialStorage());
-        return "signInForm";
-    }
-
     @GetMapping("/deconnect")
     public String leave(WebRequest request) {
         request.setAttribute("connected", false, WebRequest.SCOPE_SESSION);
         request.removeAttribute("userAccount", WebRequest.SCOPE_SESSION);
-        return "redirect: signInForm";
+        return "redirect: signInSuccess";
     }
 
     @GetMapping(value = "/user/{id}")
