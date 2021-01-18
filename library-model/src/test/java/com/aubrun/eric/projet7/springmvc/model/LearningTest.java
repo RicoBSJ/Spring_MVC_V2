@@ -10,7 +10,7 @@ public class LearningTest {
     public void encrypt_password() {
         PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
-        String encodedPassword = passwordEncoder.encode("postgres");
+        String encodedPassword = passwordEncoder.encode("sJ53");
 
         System.out.println(encodedPassword);
     }

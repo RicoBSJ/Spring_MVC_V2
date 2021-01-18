@@ -14,21 +14,26 @@
 <body>
 <div class="container">
     <div class="col-md-offset-2 col-md-7">
+        <br/>
         <h1>${message}</h1>
+        <br/>
         <hr/>
 
         <table class="table table-striped table-bordered">
             <tr>
-                <td><b>Name </b>: ${credentialStorage.username}</td>
+                <td><b>Name </b>: ${userAccount.username}</td>
             </tr>
         </table>
+        <br/>
+        <p>
+            <a> ${userAccount.username} est bien connecté</a>
+        </p>
         <br/>
         <p>
             <a href="<c:url value="/"/>">Retour à l'accueil</a>
         </p>
         <br/>
     </div>
-            <a href="<c:url value="./deconnect"/>" >Deconnexion</a>
 </div>
 </body>
 </html>

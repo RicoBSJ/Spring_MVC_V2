@@ -25,7 +25,6 @@
                 <form:input path="username" placeholder="Entrez votre nom"/>
                 <br/>
             </div>
-
             <div class="col-sm-6">
                 <form:label path="email">Email</form:label>
                 <form:input path="email" placeholder="Entrez votre email"/>

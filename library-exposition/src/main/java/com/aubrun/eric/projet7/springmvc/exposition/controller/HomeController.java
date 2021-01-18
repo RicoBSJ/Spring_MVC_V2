@@ -7,13 +7,12 @@ import com.aubrun.eric.projet7.springmvc.model.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 
 @Controller
-@SessionAttributes("userAccount")
 public class HomeController {
     private final BookService bookService;
     private final BorrowingService borrowingService;
@@ -43,7 +42,7 @@ public class HomeController {
     }
 
     @PostMapping("/home/borrowing")
-    public String borrowing(@ModelAttribute("newBorrowing") Borrowing borrowing, Model model) {
+    public ModelAndView borrowing(@ModelAttribute("borrowing") Borrowing borrowing) {
         borrowingService.addBorrow(borrowing);
         System.out.println("bookBorrowing : " + borrowing.getBookBorrowing());
         System.out.println("userAccountBorrowing : " + borrowing.getUserAccountBorrowing());
@@ -51,8 +50,11 @@ public class HomeController {
         System.out.println("endDate : " + borrowing.getEndDate());
         System.out.println("renewal : " + borrowing.getRenewal());
         System.out.println("borrowingId : " + borrowing.getBorrowingId());
-        model.addAttribute("message", "Emprunt réussi : ");
-        return "home";
+
+        ModelAndView modelAndView = new ModelAndView("home");
+        modelAndView.addObject("message", "Emprunt réalisé : ");
+        modelAndView.addObject("borrowing", borrowing.getBookBorrowing());
+        return modelAndView;
     }
 
     @PostMapping("/home/registration")
@@ -68,16 +70,16 @@ public class HomeController {
 
         ModelAndView modelAndView = new ModelAndView("../view/signUpSuccess");
         modelAndView.addObject("message", "Inscription réussie : ");
-        modelAndView.addObject("userName", userAccount.getUsername());
+        modelAndView.addObject("username", userAccount.getUsername());
         return modelAndView;
     }
 
-    @PostMapping(value = "/login")
-    public String login(@ModelAttribute("credentialStorage") CredentialStorage credentialStorage){
-        System.out.println(credentialStorage);
-        userAccountService.login(credentialStorage);
+    @PostMapping(value = "/home/login")
+    public ModelAndView login(@ModelAttribute("userAccount") UserAccount userAccount){
+        userAccountService.login(userAccount);
         ModelAndView modelAndView = new ModelAndView("../view/signInSuccess");
-        modelAndView.addObject("message", "Inscription réussie : ");
-        return "/home";
+        modelAndView.addObject("message", "Connexion réussie : ");
+        modelAndView.addObject("userName", userAccount.getUsername());
+        return modelAndView;
     }
 }

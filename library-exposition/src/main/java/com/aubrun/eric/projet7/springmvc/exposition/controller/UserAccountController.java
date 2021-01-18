@@ -25,14 +25,7 @@ public class UserAccountController {
 
     @GetMapping("/signUpForm")
     public String showSignUp() {
-        return "signUpForm";
-    }
-
-    @GetMapping("/deconnect")
-    public String leave(WebRequest request) {
-        request.setAttribute("connected", false, WebRequest.SCOPE_SESSION);
-        request.removeAttribute("userAccount", WebRequest.SCOPE_SESSION);
-        return "redirect: signInSuccess";
+        return "../view/signUpForm";
     }
 
     @GetMapping(value = "/user/{id}")
@@ -41,5 +34,11 @@ public class UserAccountController {
         ResponseEntity<UserAccount> userAccountResponseEntity = userAccountService.addUserById(userId);
         modelMap.addAttribute("userAccountResponseEntity", userAccountResponseEntity);
         return "/home";
+    }
+
+    @GetMapping("/signInForm")
+    public String showSignIn( ModelMap modelMap) {
+        modelMap.addAttribute("userAccount", new UserAccount());
+        return "../view/signInForm";
     }
 }

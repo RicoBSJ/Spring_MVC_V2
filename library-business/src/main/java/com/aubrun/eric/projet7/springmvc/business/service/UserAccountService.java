@@ -1,7 +1,6 @@
 package com.aubrun.eric.projet7.springmvc.business.service;
 
 import com.aubrun.eric.projet7.springmvc.consumer.UserAccountConsumer;
-import com.aubrun.eric.projet7.springmvc.model.CredentialStorage;
 import com.aubrun.eric.projet7.springmvc.model.JwtResponse;
 import com.aubrun.eric.projet7.springmvc.model.JwtToken;
 import com.aubrun.eric.projet7.springmvc.model.UserAccount;
@@ -26,19 +25,16 @@ public class UserAccountService {
         return userAccountConsumer.addUserAccount(userAccount);
     }
 
-    public ResponseEntity<UserAccount> connectUser(UserAccount userAccount) {
-
-        return userAccountConsumer.addConnectedUser(userAccount);
-    }
-
     public ResponseEntity<UserAccount> addUserById(int userId) {
 
         return userAccountConsumer.userById(userId);
     }
 
-    public void login(CredentialStorage credentialStorage) {
+    public void login(UserAccount userAccount) {
 
-        JwtResponse response = userAccountConsumer.login(credentialStorage).getBody();
-        this.jwtToken.setJwt(response.getAccessToken());
+        JwtResponse response = userAccountConsumer.login(userAccount).getBody();
+        if (response != null) {
+            this.jwtToken.setJwt(response.getAccessToken());
+        }
     }
 }

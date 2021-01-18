@@ -1,9 +1,10 @@
 package com.aubrun.eric.projet7.springmvc.exposition.controller;
 
+import com.aubrun.eric.projet7.springmvc.model.Borrowing;
 import com.aubrun.eric.projet7.springmvc.model.Borrowings;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class BorrowingController {
@@ -13,9 +14,10 @@ public class BorrowingController {
         return new Borrowings();
     }
 
-    @GetMapping("/borrowing")
-    public ModelAndView showForm() {
+    @GetMapping(value = "/home/borrowing")
+    public String printAllBooks(ModelMap modelMap) {
 
-        return new ModelAndView("/home", "borrowing", new Borrowings());
+        modelMap.addAttribute("bookBorrowing" , new Borrowing());
+        return "home";
     }
 }

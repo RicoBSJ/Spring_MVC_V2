@@ -14,24 +14,20 @@
 <body>
 <div class="container">
     <div class="col-md-offset-2 col-md-7">
+        <br/>
         <h1>${message}</h1>
-        <hr/>
+        <br/>
 
         <table class="table table-striped table-bordered">
             <tr>
-                <td><b>Name </b>: ${userName}</td>
+                <td><b>Name </b>: ${userAccount.username}</td>
             </tr>
-            <%--<tr>
-                <td><b>Email </b>: ${userAccount.email}</td>
-            </tr>
-            <tr>
-                <td><b>Role </b> : ${userAccount.roleDtos}</td>
-            </tr>--%>
         </table>
         <br/>
         <p>
-            <a href="<c:url value="./signInForm"/>">Connexion</a>
+            <a> ${userAccount.username} est bien inscrit</a>
         </p>
+        <br/>
         <p>
             <a href="<c:url value="/"/>">Retour à l'accueil</a>
         </p>
