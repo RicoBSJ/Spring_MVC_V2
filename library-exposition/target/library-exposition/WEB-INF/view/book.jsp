@@ -18,23 +18,37 @@
 </head>
 <body>
 <div class="container">
-    <h1>Liste des livres</h1>
+    <h1>Espace utilisateur</h1>
     <p>
         <a href="<c:url value="/"/>">Retour à l'accueil</a>
     </p>
     <table class="table">
         <tr>
             <th>Titre</th>
+            <th>Nombre d'exemplaire</th>
             <th>Auteur</th>
-            <th>Nombre d'exemplaires</th>
-            <th>Edition</th>
+            <th>Emprunt</th>
         </tr>
         <c:forEach var="book" items="${books}">
         <tr class="table">
             <td>${book.title}</td>
-            <td>${book.bookAuthor.lastName}</td>
             <td>${book.quantity}</td>
-            <td>${book.bookEdition.nameEdition}</td>
+            <td>${book.bookAuthor.firstName} ${book.bookAuthor.lastName}</td>
+            <%--<td><a href="<c:url value="${'./home/borrowing'}" />">Emprunt</a></td>--%>
+                <%--<input type="hidden" id="bookId" name="bookId" value="${book.bookId}" />
+                <input type="hidden" id="userId" name="userId" value="${userAccount.userId}" />--%>
+            <td><c:if test="${book.quantity == 3}">
+                <form action="${pageContext.request.contextPath}/home/borrowing" method="post">
+                    <input type="hidden" id="bookId" name="bookId" value="${book.bookId}" />
+                    <input type="submit" name="tag" value="Disponible" />
+                </form>
+            </c:if>
+                <c:if test="${book.quantity == 0}">
+                    <form action="${pageContext.request.contextPath}/home/borrowing" method="post">
+                        <input type="submit" name="tag" value="Non Disponible" />
+                    </form>
+                </c:if>
+            </td>
         </tr>
         </c:forEach>
 </div>

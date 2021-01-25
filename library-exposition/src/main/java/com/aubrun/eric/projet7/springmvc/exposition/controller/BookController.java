@@ -3,6 +3,7 @@ package com.aubrun.eric.projet7.springmvc.exposition.controller;
 import com.aubrun.eric.projet7.springmvc.business.service.BookService;
 import com.aubrun.eric.projet7.springmvc.model.Book;
 import com.aubrun.eric.projet7.springmvc.model.Books;
+import com.aubrun.eric.projet7.springmvc.model.Borrowings;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -21,6 +22,11 @@ public class BookController {
 
     public BookController(BookService bookService) {
         this.bookService = bookService;
+    }
+
+    @ModelAttribute(value = "book")
+    public Book setBook() {
+        return new Book();
     }
 
     @GetMapping(value = {"/book","/getAllBook"})

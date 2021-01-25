@@ -32,17 +32,15 @@
         <tr>
             <th>Titre</th>
             <th>Auteur</th>
-            <th>Nombre d'exemplaire</th>
-            <th>Emprunt</th>
+            <th>Edition</th>
+            <th>Date</th>
         </tr>
         <c:forEach var="book" items="${books}">
             <tr class="table">
                 <td>${book.title}</td>
-                <td>${book.bookAuthor.lastName}</td>
-                <td>${book.quantity}</td>
-                <td><a href="<c:url value="${'./home/borrowing'}" />">Emprunt</a></td>
-                <%--<input type="hidden" id="bookId" name="bookId" value="${book.bookId}" />
-                <input type="hidden" id="userId" name="userId" value="${userAccount.userId}" />--%>
+                <td>${book.bookAuthor.firstName} ${book.bookAuthor.lastName}</td>
+                <td>${book.bookEdition.nameEdition}</td>
+                <td>${book.yearBook}</td>
             </tr>
         </c:forEach>
     </table>

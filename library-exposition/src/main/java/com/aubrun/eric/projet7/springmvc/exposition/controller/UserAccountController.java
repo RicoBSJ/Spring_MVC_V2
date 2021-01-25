@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.context.request.WebRequest;
 
 @Controller
 @SessionAttributes("userAccount")
@@ -39,5 +40,12 @@ public class UserAccountController {
     public String showSignIn( ModelMap modelMap) {
         modelMap.addAttribute("userAccount", new UserAccount());
         return "../view/signInForm";
+    }
+
+    @GetMapping("/deconnect")
+    public String leave(WebRequest request) {
+        request.setAttribute("connected", false, WebRequest.SCOPE_SESSION);
+        request.removeAttribute("userAccount", WebRequest.SCOPE_SESSION);
+        return "../view/home";
     }
 }
