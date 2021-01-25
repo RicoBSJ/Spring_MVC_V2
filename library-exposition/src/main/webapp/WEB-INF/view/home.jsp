@@ -40,9 +40,9 @@
                 <td>${book.title}</td>
                 <td>${book.bookAuthor.lastName}</td>
                 <td>${book.quantity}</td>
-                <td><a href="<c:url value="${borrowing}" />">Emprunt</a></td>
-                <input type="hidden" id="bookId" name="bookId" value="${book.bookId}" />
-                <input type="hidden" id="userId" name="userId" value="${userAccount.userId}" />
+                <td><a href="<c:url value="${'./home/borrowing'}" />">Emprunt</a></td>
+                <%--<input type="hidden" id="bookId" name="bookId" value="${book.bookId}" />
+                <input type="hidden" id="userId" name="userId" value="${userAccount.userId}" />--%>
             </tr>
         </c:forEach>
     </table>
