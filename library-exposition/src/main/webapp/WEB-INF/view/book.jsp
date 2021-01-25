@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <html>
 <head>
     <meta charset="utf-8"/>
@@ -18,10 +19,13 @@
 </head>
 <body>
 <div class="container">
+    <br/>
     <h1>Espace utilisateur</h1>
+    <br/>
     <p>
         <a href="<c:url value="/"/>">Retour à l'accueil</a>
     </p>
+    <br/>
     <table class="table">
         <tr>
             <th>Titre</th>
@@ -37,17 +41,17 @@
             <%--<td><a href="<c:url value="${'./home/borrowing'}" />">Emprunt</a></td>--%>
                 <%--<input type="hidden" id="bookId" name="bookId" value="${book.bookId}" />
                 <input type="hidden" id="userId" name="userId" value="${userAccount.userId}" />--%>
-            <td><c:if test="${book.quantity == 3}">
-                <form action="${pageContext.request.contextPath}/home/borrowing" method="post">
-                    <input type="hidden" id="bookId" name="bookId" value="${book.bookId}" />
-                    <input type="submit" name="tag" value="Disponible" />
-                </form>
+            <td><c:if test="${book.quantity > 0}">
+                    <form:form modelAttribute="book" action="${pageContext.request.contextPath}/home/borrowing" method="post">
+                        <input type="hidden" id="bookId" name="bookId" value="${book.bookId}" />
+                        <input type="submit" name="tag" value="Disponible" />
+                    </form:form>
             </c:if>
-                <c:if test="${book.quantity == 0}">
-                    <form action="${pageContext.request.contextPath}/home/borrowing" method="post">
+            <c:if test="${book.quantity == 0}">
+                    <form:form modelAttribute="book" action="${pageContext.request.contextPath}/home/borrowing" method="post">
                         <input type="submit" name="tag" value="Non Disponible" />
-                    </form>
-                </c:if>
+                    </form:form>
+            </c:if>
             </td>
         </tr>
         </c:forEach>
