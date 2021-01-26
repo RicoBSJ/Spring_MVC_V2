@@ -39,8 +39,6 @@
             <td>${book.quantity}</td>
             <td>${book.bookAuthor.firstName} ${book.bookAuthor.lastName}</td>
             <%--<td><a href="<c:url value="${'./home/borrowing'}" />">Emprunt</a></td>--%>
-                <%--<input type="hidden" id="bookId" name="bookId" value="${book.bookId}" />
-                <input type="hidden" id="userId" name="userId" value="${userAccount.userId}" />--%>
             <td><c:if test="${book.quantity > 0}">
                     <form:form modelAttribute="book" action="${pageContext.request.contextPath}/home/borrowing" method="post">
                         <input type="hidden" id="bookId" name="bookId" value="${book.bookId}" />
