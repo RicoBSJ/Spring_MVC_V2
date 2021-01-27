@@ -21,6 +21,8 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addViewController("/").setViewName("home");
     }
 
+
+
     @Bean
     public ViewResolver viewResolver() {
         InternalResourceViewResolver bean = new InternalResourceViewResolver();
