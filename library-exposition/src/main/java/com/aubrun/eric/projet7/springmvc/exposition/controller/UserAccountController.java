@@ -29,25 +29,10 @@ public class UserAccountController {
         return "../view/signUpForm";
     }
 
-    @GetMapping(value = "/user/{id}")
-    public String userById(@PathVariable(value = "id") int userId, ModelMap modelMap) {
-
-        ResponseEntity<UserAccount> userAccountResponseEntity = userAccountService.addUserById(userId);
-        modelMap.addAttribute("userAccountResponseEntity", userAccountResponseEntity);
-        return "/home";
-    }
-
     @GetMapping("/signInForm")
     public String showSignIn( ModelMap modelMap) {
         modelMap.addAttribute("userAccount", new UserAccount());
         return "../view/signInForm";
-    }
-
-    @GetMapping("/deconnect")
-    public String leave(WebRequest request) {
-        request.setAttribute("connected", false, WebRequest.SCOPE_SESSION);
-        request.removeAttribute("userAccount", WebRequest.SCOPE_SESSION);
-        return "../view/home";
     }
 
     @PostMapping("/home/registration")
@@ -74,5 +59,12 @@ public class UserAccountController {
         modelAndView.addObject("message", "Connexion réussie : ");
         modelAndView.addObject("userName", userAccount.getUsername());
         return modelAndView;
+    }
+
+    @GetMapping("/deconnect")
+    public String leave(WebRequest request) {
+        request.setAttribute("connected", false, WebRequest.SCOPE_SESSION);
+        request.removeAttribute("userAccount", WebRequest.SCOPE_SESSION);
+        return "../view/home";
     }
 }

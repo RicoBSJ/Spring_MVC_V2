@@ -2,6 +2,7 @@ package com.aubrun.eric.projet7.springmvc.exposition.controller;
 
 import com.aubrun.eric.projet7.springmvc.business.service.BookService;
 import com.aubrun.eric.projet7.springmvc.model.Book;
+import com.aubrun.eric.projet7.springmvc.model.Borrowings;
 import com.aubrun.eric.projet7.springmvc.model.SearchBook;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -17,6 +18,11 @@ public class SearchController {
 
     public SearchController(BookService bookService) {
         this.bookService = bookService;
+    }
+
+    @ModelAttribute(value = "searchBook")
+    public SearchBook setSearchBook() {
+        return new SearchBook();
     }
 
     @GetMapping(value = "/searchBookForm")

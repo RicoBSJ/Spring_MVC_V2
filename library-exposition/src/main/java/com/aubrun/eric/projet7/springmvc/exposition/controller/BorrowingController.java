@@ -29,19 +29,11 @@ public class BorrowingController {
         return "home";
     }
 
-    @GetMapping(value = {"/borrowing"})
-    public String printAllAuthors(ModelMap model) {
-
-        Borrowings borrowings = borrowingService.getAllBorrowing().getBody();
-        model.addAttribute("borrowing" , borrowings);
-        return "/home";
-    }
-
     @PostMapping("/home/borrowing")
     public ModelAndView borrowing(@ModelAttribute("borrowing") Borrowing borrowing) {
         borrowingService.addBorrow(borrowing);
-        System.out.println("bookBorrowing : " + borrowing.getBookBorrowing());
-        System.out.println("userAccountBorrowing : " + borrowing.getUserAccountBorrowing());
+        System.out.println("bookBorrowing : " + borrowing.getBookBorrowing().getBookId());
+        System.out.println("userAccountBorrowing : " + borrowing.getUserAccountBorrowing().getUserId());
         System.out.println("beginDate : " + borrowing.getBeginDate());
         System.out.println("endDate : " + borrowing.getEndDate());
         System.out.println("renewal : " + borrowing.getRenewal());

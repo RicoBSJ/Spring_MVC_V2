@@ -37,14 +37,6 @@ public class BookController {
         return "/book";
     }
 
-    @GetMapping(value = "/book/{id}")
-    public String printBooks(@PathVariable(value = "id") int bookId, ModelMap modelMap) {
-
-        ResponseEntity<Books> books = bookService.getBook(bookId);
-        modelMap.addAttribute("books" , books);
-        return "/book";
-    }
-
     @PostMapping(value = "/book")
     private String searchBookSubmit(@ModelAttribute("book") Book book, BindingResult result, ModelMap model) {
 
