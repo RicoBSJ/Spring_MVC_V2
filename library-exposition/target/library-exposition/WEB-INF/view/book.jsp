@@ -38,18 +38,16 @@
             <td>${book.title}</td>
             <td>${book.quantity}</td>
             <td>${book.bookAuthor.firstName} ${book.bookAuthor.lastName}</td>
-            <%--<td><a href="<c:url value="${'./home/borrowing'}" />">Emprunt</a></td>--%>
+                <%--<td><a href="<c:url value="${'./home/borrowing'}" />">Emprunt</a></td>--%>
             <td><c:if test="${book.quantity > 0}">
-                    <form:form modelAttribute="book" action="${pageContext.request.contextPath}/home/borrowing" method="post">
-                        <input type="hidden" id="bookId" name="bookId" value="${book.bookId}" />
-                        <input type="submit" name="tag" value="Disponible" />
-                    </form:form>
+                <form:form modelAttribute="book" action="${pageContext.request.contextPath}/home/borrowing" method="post">
+                    <input type="hidden" id="bookId" name="bookId" value="${book.bookId}" />
+                    <input type="submit" name="tag" value="Réserver" />
+                </form:form>
             </c:if>
-            <c:if test="${book.quantity == 0}">
-                    <form:form modelAttribute="book" action="${pageContext.request.contextPath}/home/borrowing" method="post">
-                        <input type="submit" name="tag" value="Non Disponible" />
-                    </form:form>
-            </c:if>
+                <c:if test="${book.quantity == 0}">
+                    <p>Non disponible</p>
+                </c:if>
             </td>
         </tr>
         </c:forEach>

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.WebRequest;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @SessionAttributes("userAccount")
@@ -47,5 +48,31 @@ public class UserAccountController {
         request.setAttribute("connected", false, WebRequest.SCOPE_SESSION);
         request.removeAttribute("userAccount", WebRequest.SCOPE_SESSION);
         return "../view/home";
+    }
+
+    @PostMapping("/home/registration")
+    public ModelAndView registrationUser(@ModelAttribute("userAccount") UserAccount userAccount) {
+
+        UserAccount newUser = userAccountService.addUser(userAccount).getBody();
+
+        System.out.println("Username : " + userAccount.getUsername());
+        System.out.println("Password : " + userAccount.getPassword());
+        System.out.println("Email : " + userAccount.getEmail());
+        System.out.println("Role : " + userAccount.getRoleDtos());
+        System.out.println("Id : " + userAccount.getUserId());
+
+        ModelAndView modelAndView = new ModelAndView("../view/signUpSuccess");
+        modelAndView.addObject("message", "Inscription réussie : ");
+        modelAndView.addObject("username", userAccount.getUsername());
+        return modelAndView;
+    }
+
+    @PostMapping(value = "/home/login")
+    public ModelAndView login(@ModelAttribute("userAccount") UserAccount userAccount){
+        userAccountService.login(userAccount);
+        ModelAndView modelAndView = new ModelAndView("../view/signInSuccess");
+        modelAndView.addObject("message", "Connexion réussie : ");
+        modelAndView.addObject("userName", userAccount.getUsername());
+        return modelAndView;
     }
 }
