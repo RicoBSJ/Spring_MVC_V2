@@ -26,7 +26,7 @@
         <a href="<c:url value="/"/>">Retour à l'accueil</a>
     </p>
     <br/>
-    <c:if test="${!empty sessionScope.sessionUtilisateur}">
+    <c:if test="${!empty sessionScope.userAccount.username}">
     <table class="table">
         <tr>
             <th>Titre</th>

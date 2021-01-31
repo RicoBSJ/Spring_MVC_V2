@@ -6,6 +6,7 @@ import com.aubrun.eric.projet7.springmvc.business.service.UserAccountService;
 import com.aubrun.eric.projet7.springmvc.model.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 
@@ -24,5 +25,12 @@ public class HomeController {
         ModelAndView modelAndView = new ModelAndView("/home", "searchBook", new SearchBook());
         modelAndView.addObject("books", result);
         return modelAndView;
+    }
+
+    @GetMapping("/deconnect")
+    public String leave(WebRequest request) {
+        request.setAttribute("connected", false, WebRequest.SCOPE_SESSION);
+        request.removeAttribute("userAccount", WebRequest.SCOPE_SESSION);
+        return "../view/home";
     }
 }

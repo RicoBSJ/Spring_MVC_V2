@@ -2,7 +2,6 @@ package com.aubrun.eric.projet7.springmvc.exposition.controller;
 
 import com.aubrun.eric.projet7.springmvc.business.service.UserAccountService;
 import com.aubrun.eric.projet7.springmvc.model.UserAccount;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
@@ -59,12 +58,5 @@ public class UserAccountController {
         modelAndView.addObject("message", "Connexion réussie : ");
         modelAndView.addObject("userName", userAccount.getUsername());
         return modelAndView;
-    }
-
-    @GetMapping("/deconnect")
-    public String leave(WebRequest request) {
-        request.setAttribute("connected", false, WebRequest.SCOPE_SESSION);
-        request.removeAttribute("userAccount", WebRequest.SCOPE_SESSION);
-        return "../view/home";
     }
 }

@@ -30,8 +30,9 @@
                     </li>
                 </c:if>
                 <c:if test="${!empty sessionScope}">
+                    <li class="nav-item">${sessionScope.userAccount.username} est connecté</li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<c:url value="./book" />">Espace utilisateur</a>
+                        <a class="nav-link" href="<c:url value="./home/borrowing" />">Espace utilisateur</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="<c:url value="./deconnect" />">Déconnexion</a>

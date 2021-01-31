@@ -25,6 +25,8 @@
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.9.6" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.9.0" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.9.6" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-web:5.4.2" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-core:5.4.2" />
           <element id="archive" name="library-model-1.0-SNAPSHOT.jar">
             <element id="module-output" name="library-model" />
           </element>

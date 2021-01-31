@@ -30,7 +30,7 @@ public class BorrowingController {
         return new Borrowings();
     }
 
-    @GetMapping(value = "/borrowing")
+    @GetMapping(value = "/home/borrowing")
     public String printAllBooks(ModelMap modelMap) {
 
         Borrowings borrowings = borrowingService.getAllBorrowing().getBody();
@@ -54,7 +54,7 @@ public class BorrowingController {
         return modelAndView;
     }*/
 
-    @PostMapping(value = "/borrowing")
+    @PostMapping(value = "/home/borrowing")
     private String searchBookSubmit(@ModelAttribute("borrowing") Borrowing borrowing, ModelMap model) {
 
         model.addAttribute("bookBorrowing", borrowing.getBookBorrowing().getBookId());

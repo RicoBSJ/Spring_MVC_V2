@@ -26,7 +26,7 @@
         <a href="<c:url value="/"/>">Retour à l'accueil</a>
     </p>
     <br/>
-    <c:if test="${!empty sessionScope.sessionUtilisateur}">
+    <c:if test="${!empty sessionScope.userAccount.username}">
     <table class="table">
         <tr>
             <th>Titre</th>
@@ -39,7 +39,6 @@
             <td>${book.title}</td>
             <td>${book.quantity}</td>
             <td>${book.bookAuthor.firstName} ${book.bookAuthor.lastName}</td>
-                <%--<td><a href="<c:url value="${'./home/borrowing'}" />">Emprunt</a></td>--%>
             <td><c:if test="${book.quantity > 0}">
                 <form:form modelAttribute="book" action="${pageContext.request.contextPath}/borrowing" method="post">
                     <input type="hidden" id="bookId" name="bookId" value="${book.bookId}" />
