@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: ricobsj
-  Date: 05/12/2020
-  Time: 23:09
+  Date: 31/01/2021
+  Time: 12:45
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" %>
@@ -34,19 +34,18 @@
             <th>Auteur</th>
             <th>Emprunt</th>
         </tr>
-        <c:forEach var="book" items="${books}">
+        <c:forEach var="borrowing" items="${borrowings}">
         <tr class="table">
-            <td>${book.title}</td>
-            <td>${book.quantity}</td>
-            <td>${book.bookAuthor.firstName} ${book.bookAuthor.lastName}</td>
-                <%--<td><a href="<c:url value="${'./home/borrowing'}" />">Emprunt</a></td>--%>
-            <td><c:if test="${book.quantity > 0}">
-                <form:form modelAttribute="book" action="${pageContext.request.contextPath}/borrowing" method="post">
-                    <input type="hidden" id="bookId" name="bookId" value="${book.bookId}" />
+            <td>${borrowing.bookBorrowing.title}</td>
+            <td>${borrowing.bookBorrowing.quantity}</td>
+            <td>${borrowing.bookBorrowing.bookAuthor.firstName} ${borrowing.bookBorrowing.bookAuthor.lastName}</td>
+            <td><c:if test="${borrowing.bookBorrowing.quantity > 0}">
+                <form:form modelAttribute="borrowing" action="${pageContext.request.contextPath}/borrowing" method="post">
+                    <input type="hidden" id="bookId" name="bookId" value="${borrowing.bookBorrowing.bookId}" />
                     <input type="submit" name="tag" value="Réserver" />
                 </form:form>
             </c:if>
-                <c:if test="${book.quantity == 0}">
+                <c:if test="${borrowing.bookBorrowing.quantity == 0}">
                     <p>Non disponible</p>
                 </c:if>
             </td>

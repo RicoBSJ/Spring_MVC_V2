@@ -1,5 +1,6 @@
 package com.aubrun.eric.projet7.springmvc.business.config;
 
+import com.aubrun.eric.projet7.springmvc.model.ActiveUserStore;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -37,5 +38,10 @@ public class WebConfig implements WebMvcConfigurer {
     @Bean
     public RestTemplate restTemplate(){
         return new RestTemplate();
+    }
+
+    @Bean
+    public ActiveUserStore activeUserStore(){
+        return new ActiveUserStore();
     }
 }
