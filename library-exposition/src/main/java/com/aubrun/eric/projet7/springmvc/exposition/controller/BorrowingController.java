@@ -26,19 +26,19 @@ public class BorrowingController {
     }
 
     @ModelAttribute(value = "borrowing")
-    public Borrowings setBorrowings() {
-        return new Borrowings();
+    public Borrowing setBorrowing() {
+        return new Borrowing();
     }
 
-    @GetMapping(value = "/home/borrowing")
-    public String printAllBooks(ModelMap modelMap) {
+    @GetMapping(value = {"/borrowing","/getAllBorrowing"})
+    public String printAllBorrowings(ModelMap modelMap) {
 
         Borrowings borrowings = borrowingService.getAllBorrowing().getBody();
         modelMap.addAttribute("bookBorrowings" , borrowings);
-        return "borrowing";
+        return "/borrowing";
     }
 
-    /*@PostMapping("/borrowing")
+    @PostMapping("/borrowing")
     public ModelAndView borrowing(@ModelAttribute("borrowing") Borrowing borrowing) {
         borrowingService.addBorrow(borrowing);
         System.out.println("bookBorrowing : " + borrowing.getBookBorrowing().getBookId());
@@ -52,10 +52,10 @@ public class BorrowingController {
         modelAndView.addObject("message", "Emprunt réalisé : ");
         modelAndView.addObject("borrowing", borrowing.getBookBorrowing());
         return modelAndView;
-    }*/
+    }
 
-    @PostMapping(value = "/home/borrowing")
-    private String searchBookSubmit(@ModelAttribute("borrowing") Borrowing borrowing, ModelMap model) {
+    /*@PostMapping(value = "/borrowing")
+    private String searchBorrowing(@ModelAttribute("borrowing") Borrowing borrowing, ModelMap model) {
 
         model.addAttribute("bookBorrowing", borrowing.getBookBorrowing().getBookId());
         model.addAttribute("userAccountBorrowing", borrowing.getUserAccountBorrowing().getUserId());
@@ -67,5 +67,5 @@ public class BorrowingController {
         borrowingMap.put(borrowing.getBorrowingId(), borrowing);
 
         return "borrowing";
-    }
+    }*/
 }

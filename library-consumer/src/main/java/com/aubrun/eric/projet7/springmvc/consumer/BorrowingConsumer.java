@@ -22,7 +22,9 @@ public class BorrowingConsumer {
     public ResponseEntity<Void> addBorrowing(Borrowing borrowing, JwtToken jwtToken) {
         HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", jwtToken.getJwt());
-        HttpEntity entity = new HttpEntity(borrowing, headers);
+        HttpEntity<Borrowing> entity = new HttpEntity<>(borrowing, headers);
+        /*HttpEntity entity = new HttpEntity(borrowing, headers);*/
+        /*HttpEntity<Borrowing> entity = new HttpEntity<>(borrowing, headers);*/
         return restTemplate.exchange("http://localhost:8081/biblio-api/borrowings/", HttpMethod.POST, entity, Void.class);
     }
 

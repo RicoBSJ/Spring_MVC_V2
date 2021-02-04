@@ -26,7 +26,8 @@
         <a href="<c:url value="/"/>">Retour à l'accueil</a>
     </p>
     <br/>
-    <c:if test="${!empty sessionScope.userAccount.username}">
+    <%--<c:if test="${!empty sessionScope.userAccount.username}">--%>
+        <%--${sessionScope.userAccount.username == borrowing.userAccountBorrowing.username}--%>
     <table class="table">
         <tr>
             <th>Titre</th>
@@ -52,7 +53,7 @@
         </tr>
         </c:forEach>
     </table>
-    </c:if>
+    <%--</c:if>--%>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
