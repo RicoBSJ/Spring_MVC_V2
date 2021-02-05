@@ -22,7 +22,7 @@ public class BorrowingService {
 
     public ResponseEntity<Borrowings> getAllBorrowing(){
 
-        return borrowingConsumer.getBorrowing();
+        return borrowingConsumer.getBorrowing(jwtToken);
     }
 
     public ResponseEntity<Void> addBorrow(Borrowing borrowing) {

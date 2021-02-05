@@ -15,12 +15,12 @@
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
           crossorigin="anonymous">
-    <title>Liste des livres</title>
+    <title>Liste des emprunts</title>
 </head>
 <body>
 <div class="container">
     <br/>
-    <h1>Espace utilisateur</h1>
+    <h1>Liste des emprunts de ${sessionScope.userAccount.username}</h1>
     <br/>
     <p>
         <a href="<c:url value="/"/>">Retour à l'accueil</a>
@@ -33,6 +33,7 @@
             <th>Titre</th>
             <th>Nombre d'exemplaire</th>
             <th>Auteur</th>
+            <th>Date de fin d'emprunt</th>
             <th>Emprunt</th>
         </tr>
         <c:forEach var="borrowing" items="${borrowings}">
@@ -40,10 +41,11 @@
             <td>${borrowing.bookBorrowing.title}</td>
             <td>${borrowing.bookBorrowing.quantity}</td>
             <td>${borrowing.bookBorrowing.bookAuthor.firstName} ${borrowing.bookBorrowing.bookAuthor.lastName}</td>
+            <td>${borrowing.endDate}</td>
             <td><c:if test="${borrowing.bookBorrowing.quantity > 0}">
                 <form:form modelAttribute="borrowing" action="${pageContext.request.contextPath}/borrowing" method="post">
                     <input type="hidden" id="bookId" name="bookId" value="${borrowing.bookBorrowing.bookId}" />
-                    <input type="submit" name="tag" value="Réserver" />
+                    <input type="submit" name="tag" value="Renouveler" />
                 </form:form>
             </c:if>
                 <c:if test="${borrowing.bookBorrowing.quantity == 0}">
