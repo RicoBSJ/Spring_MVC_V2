@@ -48,7 +48,7 @@ public class BorrowingController {
 
         ModelAndView modelAndView = new ModelAndView("home");
         modelAndView.addObject("message", "Emprunt réalisé : ");
-        modelAndView.addObject("borrowing", borrowing.getBookBorrowing());
+        modelAndView.addObject("borrowing", borrowing);
         return modelAndView;
     }
 
