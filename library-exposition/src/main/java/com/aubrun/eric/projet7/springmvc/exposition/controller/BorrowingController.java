@@ -16,8 +16,6 @@ import java.util.Map;
 @Controller
 public class BorrowingController {
 
-    private final Map<Integer, Borrowing> borrowingMap = new HashMap<>();
-
     private final BorrowingService borrowingService;
 
     public BorrowingController(BorrowingService borrowingService) {
@@ -53,25 +51,12 @@ public class BorrowingController {
         return modelAndView;
     }
 
-    /*@PostMapping(value = "/borrowing")
-    private String searchBorrowing(@ModelAttribute("borrowing") Borrowing borrowing, ModelMap model) {
-
-        model.addAttribute("bookBorrowing", borrowing.getBookBorrowing().getBookId());
-        model.addAttribute("userAccountBorrowing", borrowing.getUserAccountBorrowing().getUserId());
-        model.addAttribute("beginDate", borrowing.getBeginDate());
-        model.addAttribute("endDate", borrowing.getEndDate());
-        model.addAttribute("renewal", borrowing.getRenewal());
-        model.addAttribute("borrowingId", borrowing.getBorrowingId());
-
-        borrowingMap.put(borrowing.getBorrowingId(), borrowing);
-
-        return "borrowing";
-    }*/
-
     @PostMapping("/updateBorrowing")
-    public String extendBorrowing(@ModelAttribute ("ExtendBorrowingForm")ExtendBorrowingForm form){
-        //Appeler le service
+    public String extendBorrowing(@ModelAttribute ("extendBorrowingForm")ExtendBorrowingForm form, ModelMap modelMap){
+
+        Borrowings borrowings = borrowingService.getAllBorrowing().getBody();
+        modelMap.addAttribute("borrowings" , borrowings);
         borrowingService.extendBorrowing(form.getBorrowingId());
-        return "/borrowing";
+        return "borrowing";
     }
 }

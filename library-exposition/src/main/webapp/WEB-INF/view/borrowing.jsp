@@ -43,7 +43,7 @@
             <td>${borrowing.bookBorrowing.bookAuthor.firstName} ${borrowing.bookBorrowing.bookAuthor.lastName}</td>
             <td>${borrowing.endDate}</td>
             <td><c:if test="${!borrowing.renewal}">
-                <form:form modelAttribute="ExtendBorrowingForm" action="${pageContext.request.contextPath}/updateBorrowing" method="post">
+                <form:form modelAttribute="extendBorrowingForm" action="${pageContext.request.contextPath}/updateBorrowing" method="post">
                     <input type="hidden" id="borrowingId" name="borrowingId" value="${borrowing.borrowingId}" />
                     <input type="submit" name="tag" value="Renouveler" />
                 </form:form>
