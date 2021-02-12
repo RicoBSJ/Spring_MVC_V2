@@ -42,13 +42,13 @@
             <td>${borrowing.bookBorrowing.quantity}</td>
             <td>${borrowing.bookBorrowing.bookAuthor.firstName} ${borrowing.bookBorrowing.bookAuthor.lastName}</td>
             <td>${borrowing.endDate}</td>
-            <td><c:if test="${borrowing.bookBorrowing.quantity > 0}">
-                <form:form modelAttribute="borrowing" action="${pageContext.request.contextPath}/borrowing" method="post">
-                    <input type="hidden" id="bookId" name="bookId" value="${borrowing.bookBorrowing.bookId}" />
+            <td><c:if test="${!borrowing.renewal}">
+                <form:form modelAttribute="ExtendBorrowingForm" action="${pageContext.request.contextPath}/updateBorrowing" method="post">
+                    <input type="hidden" id="borrowingId" name="borrowingId" value="${borrowing.borrowingId}" />
                     <input type="submit" name="tag" value="Renouveler" />
                 </form:form>
             </c:if>
-                <c:if test="${borrowing.bookBorrowing.quantity == 0}">
+                <c:if test="${borrowing.renewal}">
                     <p>Non disponible</p>
                 </c:if>
             </td>

@@ -32,4 +32,11 @@ public class BorrowingConsumer {
         HttpEntity<HttpHeaders> entity = new HttpEntity<>(headers);
         return restTemplate.exchange("http://localhost:8081/biblio-api/borrowings/", HttpMethod.GET, entity, Borrowings.class);
     }
+
+    public ResponseEntity<Void> extendBorrowing(Integer borrowingId, JwtToken jwtToken){
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Authorization", jwtToken.getJwt());
+        HttpEntity<HttpHeaders> entity = new HttpEntity<>(headers);
+        return restTemplate.exchange("http://localhost:8081/biblio-api/borrowings/"+borrowingId, HttpMethod.PUT, entity, Void.class);
+    }
 }

@@ -1,6 +1,7 @@
 package com.aubrun.eric.projet7.springmvc.exposition.controller;
 
 import com.aubrun.eric.projet7.springmvc.business.service.BorrowingService;
+import com.aubrun.eric.projet7.springmvc.exposition.controller.form.ExtendBorrowingForm;
 import com.aubrun.eric.projet7.springmvc.model.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -66,4 +67,11 @@ public class BorrowingController {
 
         return "borrowing";
     }*/
+
+    @PostMapping("/updateBorrowing")
+    public String extendBorrowing(@ModelAttribute ("ExtendBorrowingForm")ExtendBorrowingForm form){
+        //Appeler le service
+        borrowingService.extendBorrowing(form.getBorrowingId());
+        return "/borrowing";
+    }
 }

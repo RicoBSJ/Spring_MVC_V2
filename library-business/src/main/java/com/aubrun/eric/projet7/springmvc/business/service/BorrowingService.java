@@ -29,4 +29,8 @@ public class BorrowingService {
 
         return borrowingConsumer.addBorrowing(borrowing, jwtToken);
     }
+
+    public ResponseEntity<Void> extendBorrowing(Integer borrowingId){
+        return borrowingConsumer.extendBorrowing(borrowingId, jwtToken);
+    }
 }
