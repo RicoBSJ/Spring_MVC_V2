@@ -54,9 +54,9 @@ public class BorrowingController {
     @PostMapping("/updateBorrowing")
     public String extendBorrowing(@ModelAttribute ("extendBorrowingForm")ExtendBorrowingForm form, ModelMap modelMap){
 
+        borrowingService.extendBorrowing(form.getBorrowingId());
         Borrowings borrowings = borrowingService.getAllBorrowing().getBody();
         modelMap.addAttribute("borrowings" , borrowings);
-        borrowingService.extendBorrowing(form.getBorrowingId());
         return "borrowing";
     }
 }
