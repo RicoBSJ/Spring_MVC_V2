@@ -2,7 +2,6 @@ package com.aubrun.eric.projet7.springmvc.exposition.controller;
 
 import com.aubrun.eric.projet7.springmvc.business.service.BookService;
 import com.aubrun.eric.projet7.springmvc.model.Book;
-import com.aubrun.eric.projet7.springmvc.model.Borrowings;
 import com.aubrun.eric.projet7.springmvc.model.SearchBook;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -35,7 +34,7 @@ public class SearchController {
     @PostMapping(value = "/home/search")
     private ModelAndView searchBookSubmit(@ModelAttribute("searchBook") SearchBook searchBook) {
         List<Book> result = bookService.searchBook(searchBook).getBody();
-        ModelAndView modelAndView = new ModelAndView("/home", "searchBook", new SearchBook());
+        ModelAndView modelAndView = new ModelAndView("home", "searchBook", new SearchBook());
         modelAndView.addObject("books", result);
         return modelAndView;
     }

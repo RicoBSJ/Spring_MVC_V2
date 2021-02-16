@@ -5,13 +5,8 @@ import com.aubrun.eric.projet7.springmvc.exposition.controller.form.ExtendBorrow
 import com.aubrun.eric.projet7.springmvc.model.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-
-import java.security.Principal;
-import java.util.HashMap;
-import java.util.Map;
 
 @Controller
 public class BorrowingController {
