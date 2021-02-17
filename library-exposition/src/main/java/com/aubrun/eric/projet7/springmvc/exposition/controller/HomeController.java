@@ -22,7 +22,7 @@ public class HomeController {
     public ModelAndView home() {
         SearchBook searchBook = new SearchBook();
         List<Book> result = bookService.searchBook(searchBook).getBody();
-        ModelAndView modelAndView = new ModelAndView("/WEB-INF/include/home.jsp", "searchBook", new SearchBook());
+        ModelAndView modelAndView = new ModelAndView("home", "searchBook", new SearchBook());
         modelAndView.addObject("books", result);
         return modelAndView;
     }
