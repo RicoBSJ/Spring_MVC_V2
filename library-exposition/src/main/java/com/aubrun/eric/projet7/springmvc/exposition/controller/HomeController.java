@@ -26,17 +26,4 @@ public class HomeController {
         modelAndView.addObject("books", result);
         return modelAndView;
     }
-
-    /*@GetMapping("/deconnect")
-    public String leave(WebRequest request) {
-        request.setAttribute("connected", false, WebRequest.SCOPE_SESSION);
-        request.removeAttribute("userAccount", WebRequest.SCOPE_SESSION);
-        return "../view/home";
-    }*/
-
-    @GetMapping("/deconnect")
-    public String endSessionHandlingMethod(HttpServletRequest httpRequest){
-        httpRequest.getSession().invalidate();
-        return "home";
-    }
 }
