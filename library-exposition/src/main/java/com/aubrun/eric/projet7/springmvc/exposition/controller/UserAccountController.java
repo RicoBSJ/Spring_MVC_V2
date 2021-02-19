@@ -63,22 +63,20 @@ public class UserAccountController {
     }
 
     @PostMapping(value = "/home/login")
-    public ModelAndView login(@ModelAttribute("userAccount") UserAccount userAccount) {
+    public ModelAndView login(@ModelAttribute("userAccount") UserAccount userAccount, HttpSession session) {
         userAccountService.login(userAccount);
+        session.setAttribute("username", userAccount.getUsername());
         ModelAndView modelAndView = new ModelAndView("../view/signInSuccess");
         modelAndView.addObject("message", "Connexion réussie : ");
         modelAndView.addObject("userName", userAccount.getUsername());
         return modelAndView;
     }
 
-    @GetMapping("/deconnect")
-    public ModelAndView leave(@ModelAttribute("searchBook") SearchBook searchBook, WebRequest request) {
-
-        request.setAttribute("userAccount", false, WebRequest.SCOPE_SESSION);
-        request.removeAttribute("connected", WebRequest.SCOPE_REQUEST);
-        List<Book> result = bookService.searchBook(searchBook).getBody();
-        ModelAndView modelAndView = new ModelAndView("home", "searchBook", new SearchBook());
-        modelAndView.addObject("books", result);
-        return modelAndView;
+    @PostMapping("/deconnect")
+    public String leave(HttpSession session) {
+        session.removeAttribute("username");
+        session.invalidate();
+        userAccountService.logout();
+        return "redirect:/home";
     }
 }
