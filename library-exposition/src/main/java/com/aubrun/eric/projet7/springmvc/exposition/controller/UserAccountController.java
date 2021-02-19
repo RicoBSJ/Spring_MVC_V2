@@ -5,12 +5,16 @@ import com.aubrun.eric.projet7.springmvc.business.service.UserAccountService;
 import com.aubrun.eric.projet7.springmvc.model.Book;
 import com.aubrun.eric.projet7.springmvc.model.SearchBook;
 import com.aubrun.eric.projet7.springmvc.model.UserAccount;
+import org.springframework.aop.scope.ScopedObject;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -36,7 +40,7 @@ public class UserAccountController {
     }
 
     @GetMapping("/signInForm")
-    public String showSignIn( ModelMap modelMap) {
+    public String showSignIn(ModelMap modelMap) {
         modelMap.addAttribute("userAccount", new UserAccount());
         return "../view/signInForm";
     }
@@ -59,20 +63,13 @@ public class UserAccountController {
     }
 
     @PostMapping(value = "/home/login")
-    public ModelAndView login(@ModelAttribute("userAccount") UserAccount userAccount){
+    public ModelAndView login(@ModelAttribute("userAccount") UserAccount userAccount) {
         userAccountService.login(userAccount);
         ModelAndView modelAndView = new ModelAndView("../view/signInSuccess");
         modelAndView.addObject("message", "Connexion réussie : ");
         modelAndView.addObject("userName", userAccount.getUsername());
         return modelAndView;
     }
-
-    /*@GetMapping("/deconnect")
-    public String endSessionHandlingMethod(UserAccount userAccount){
-        ResponseEntity<UserAccount> currentUser = userAccountService.addUserById(userAccount.getUserId());
-        currentUser = null;
-        return "home";
-    }*/
 
     @GetMapping("/deconnect")
     public ModelAndView leave(@ModelAttribute("searchBook") SearchBook searchBook, WebRequest request) {
