@@ -1,5 +1,6 @@
 <%@ page pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,7 +22,7 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <c:if test="${empty sessionScope}">
+                <c:if test="${empty sessionScope.username}">
                     <li class="nav-item">
                         <a class="nav-link" href="<c:url value="./signUpForm" />">Inscription</a>
                     </li>
@@ -29,13 +30,15 @@
                         <a class="nav-link" href="<c:url value="./signInForm" />">Connexion</a>
                     </li>
                 </c:if>
-                <c:if test="${!empty sessionScope}">
+                <c:if test="${!empty sessionScope.username}">
                     <li class="nav-item">${sessionScope.userAccount.username} est connecté</li>
                     <li class="nav-item">
                         <a class="nav-link" href="<c:url value="./borrowing" />">Espace utilisateur</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<c:url value="./deconnect" />">Déconnexion</a>
+                        <form:form action="/library_exposition_war_exploded/deconnect" method="post">
+                            <input class="nav-link"  type="submit" value="Déconnexion" />
+                        </form:form>
                     </li>
                 </c:if>
             </ul>
