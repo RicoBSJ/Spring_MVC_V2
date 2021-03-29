@@ -31,7 +31,7 @@
                     </li>
                 </c:if>
                 <c:if test="${!empty sessionScope.username}">
-                    <li class="nav-item">${sessionScope.userAccount.username} est connecté</li>
+                    <li class="nav-item">${sessionScope.username} est connecté</li>
                     <li class="nav-item">
                         <a class="nav-link" href="<c:url value="./borrowing" />">Espace utilisateur</a>
                     </li>
