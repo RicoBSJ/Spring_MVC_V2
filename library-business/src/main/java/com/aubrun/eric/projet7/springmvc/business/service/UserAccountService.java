@@ -6,6 +6,7 @@ import com.aubrun.eric.projet7.springmvc.model.JwtToken;
 import com.aubrun.eric.projet7.springmvc.model.UserAccount;
 import org.springframework.beans.factory.config.SingletonBeanRegistry;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -32,12 +33,13 @@ public class UserAccountService {
         return userAccountConsumer.userById(userId);
     }
 
-    public void login(UserAccount userAccount) {
+    public ResponseEntity<JwtResponse> login(UserAccount userAccount) {
 
-        JwtResponse response = userAccountConsumer.login(userAccount).getBody();
-        if (response != null) {
-            this.jwtToken.setJwt(response.getAccessToken());
+        ResponseEntity<JwtResponse> response = userAccountConsumer.login(userAccount);
+        if (response.getStatusCode() == HttpStatus.OK && response.getBody() != null ) {
+            this.jwtToken.setJwt(response.getBody().getAccessToken());
         }
+        return response;
     }
 
     public void logout() {

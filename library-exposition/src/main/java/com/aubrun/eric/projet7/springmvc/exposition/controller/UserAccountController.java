@@ -3,9 +3,12 @@ package com.aubrun.eric.projet7.springmvc.exposition.controller;
 import com.aubrun.eric.projet7.springmvc.business.service.BookService;
 import com.aubrun.eric.projet7.springmvc.business.service.UserAccountService;
 import com.aubrun.eric.projet7.springmvc.model.Book;
+import com.aubrun.eric.projet7.springmvc.model.JwtResponse;
 import com.aubrun.eric.projet7.springmvc.model.SearchBook;
 import com.aubrun.eric.projet7.springmvc.model.UserAccount;
 import org.springframework.aop.scope.ScopedObject;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -64,10 +67,14 @@ public class UserAccountController {
 
     @PostMapping(value = "/home/login")
     public ModelAndView login(@ModelAttribute("userAccount") UserAccount userAccount, HttpSession session) {
-        userAccountService.login(userAccount);
+        ResponseEntity<JwtResponse> result = userAccountService.login(userAccount);
         session.setAttribute("username", userAccount.getUsername());
         ModelAndView modelAndView = new ModelAndView("../view/signInSuccess");
-        modelAndView.addObject("message", "Connexion réussie : ");
+        if(result.getStatusCode().equals(HttpStatus.OK)){
+            modelAndView.addObject("message", "Connexion réussie : ");
+        } else {
+            modelAndView.addObject("message", result.getBody());
+        }
         modelAndView.addObject("userName", userAccount.getUsername());
         return modelAndView;
     }

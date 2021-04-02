@@ -1,9 +1,13 @@
 package com.aubrun.eric.projet7.springmvc.consumer;
 
 import com.aubrun.eric.projet7.springmvc.model.JwtResponse;
+import com.aubrun.eric.projet7.springmvc.model.JwtToken;
 import com.aubrun.eric.projet7.springmvc.model.UserAccount;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
 @Component
@@ -23,6 +27,12 @@ public class UserAccountConsumer {
     }
 
     public ResponseEntity<JwtResponse> login(UserAccount userAccount) {
-        return restTemplate.postForEntity("http://localhost:8081/biblio-api/api/auth/signin", userAccount, JwtResponse.class);
+        HttpEntity<UserAccount> entity = new HttpEntity<>(userAccount);
+        try{
+            restTemplate.exchange("http://localhost:8081/biblio-api/api/auth/signin", HttpMethod.POST, entity, Object.class);
+        } catch(HttpClientErrorException e) {
+            e.getResponseBodyAsString();
+        }
+        return restTemplate.exchange("http://localhost:8081/biblio-api/api/auth/signin", HttpMethod.POST, entity, JwtResponse.class);
     }
 }
