@@ -1,9 +1,11 @@
 package com.aubrun.eric.projet7.springmvc.consumer;
 
+import com.aubrun.eric.projet7.springmvc.model.Borrowing;
 import com.aubrun.eric.projet7.springmvc.model.JwtResponse;
 import com.aubrun.eric.projet7.springmvc.model.JwtToken;
 import com.aubrun.eric.projet7.springmvc.model.UserAccount;
 import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
