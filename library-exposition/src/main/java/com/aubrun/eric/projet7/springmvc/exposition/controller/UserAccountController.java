@@ -2,23 +2,19 @@ package com.aubrun.eric.projet7.springmvc.exposition.controller;
 
 import com.aubrun.eric.projet7.springmvc.business.service.BookService;
 import com.aubrun.eric.projet7.springmvc.business.service.UserAccountService;
-import com.aubrun.eric.projet7.springmvc.model.Book;
 import com.aubrun.eric.projet7.springmvc.model.JwtResponse;
-import com.aubrun.eric.projet7.springmvc.model.SearchBook;
 import com.aubrun.eric.projet7.springmvc.model.UserAccount;
-import org.springframework.aop.scope.ScopedObject;
+import org.omg.CORBA.portable.ApplicationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.util.ClassUtils;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.util.List;
 
 @Controller
 @SessionAttributes("userAccount")
@@ -37,15 +33,15 @@ public class UserAccountController {
         return new UserAccount();
     }
 
-    @GetMapping("/signUpForm")
-    public String showSignUp() {
-        return "../view/signUpForm";
+    @GetMapping("/signInForm")
+    public String showSignIn() {
+        return "../view/signInForm";
     }
 
-    @GetMapping("/signInForm")
-    public String showSignIn(ModelMap modelMap) {
+    @GetMapping("/signUpForm")
+    public String showSignUp(ModelMap modelMap) {
         modelMap.addAttribute("userAccount", new UserAccount());
-        return "../view/signInForm";
+        return "../view/signUpForm";
     }
 
     @PostMapping("/home/registration")
@@ -86,4 +82,23 @@ public class UserAccountController {
         userAccountService.logout();
         return "redirect:/home";
     }
+
+    /*@ExceptionHandler(ApplicationException.class)
+    @RequestMapping(value="errorPage401", method=RequestMethod.GET)
+    @ResponseStatus(value=HttpStatus.UNAUTHORIZED,reason="Unauthorized Request")
+    public String handleUnauthorizedRequest(ApplicationException ex, HttpServletResponse response, ModelMap map) {
+        map.addAttribute("http-error-code", HttpStatus.UNAUTHORIZED);
+        return processErrorCodes(ex,response,map);
+    }
+
+    @ExceptionHandler(ApplicationException.class)
+    public void handleApplicationExceptions(Throwable exception, HttpServletResponse response) {
+
+    }
+
+    private String processErrorCodes(ApplicationException ex,HttpServletResponse response, ModelMap map){
+        map.addAttribute("class", ClassUtils.getShortName(ex.getClass()));
+        map.addAttribute("message", ex.getMessage());
+        return "errorPage";
+    }*/
 }

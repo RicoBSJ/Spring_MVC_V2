@@ -33,7 +33,7 @@
         </p>
         <br/>
         <p>
-            <a href="<c:url value="${'./login'}"/>">Connexion</a>
+            <a href="<c:url value="/login"/>">Connexion</a>
         </p>
         <br/>
     </div>
