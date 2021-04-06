@@ -1,19 +1,15 @@
 package com.aubrun.eric.projet7.springmvc.exposition.controller;
 
-import com.aubrun.eric.projet7.springmvc.business.service.BookService;
 import com.aubrun.eric.projet7.springmvc.business.service.UserAccountService;
 import com.aubrun.eric.projet7.springmvc.model.JwtResponse;
 import com.aubrun.eric.projet7.springmvc.model.UserAccount;
-import org.omg.CORBA.portable.ApplicationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.util.ClassUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 @Controller
@@ -21,11 +17,9 @@ import javax.servlet.http.HttpSession;
 public class UserAccountController {
 
     private final UserAccountService userAccountService;
-    private final BookService bookService;
 
-    public UserAccountController(UserAccountService userAccountService, BookService bookService) {
+    public UserAccountController(UserAccountService userAccountService) {
         this.userAccountService = userAccountService;
-        this.bookService = bookService;
     }
 
     @ModelAttribute(value = "userAccount")
@@ -82,23 +76,4 @@ public class UserAccountController {
         userAccountService.logout();
         return "redirect:/home";
     }
-
-    /*@ExceptionHandler(ApplicationException.class)
-    @RequestMapping(value="errorPage401", method=RequestMethod.GET)
-    @ResponseStatus(value=HttpStatus.UNAUTHORIZED,reason="Unauthorized Request")
-    public String handleUnauthorizedRequest(ApplicationException ex, HttpServletResponse response, ModelMap map) {
-        map.addAttribute("http-error-code", HttpStatus.UNAUTHORIZED);
-        return processErrorCodes(ex,response,map);
-    }
-
-    @ExceptionHandler(ApplicationException.class)
-    public void handleApplicationExceptions(Throwable exception, HttpServletResponse response) {
-
-    }
-
-    private String processErrorCodes(ApplicationException ex,HttpServletResponse response, ModelMap map){
-        map.addAttribute("class", ClassUtils.getShortName(ex.getClass()));
-        map.addAttribute("message", ex.getMessage());
-        return "errorPage";
-    }*/
 }
