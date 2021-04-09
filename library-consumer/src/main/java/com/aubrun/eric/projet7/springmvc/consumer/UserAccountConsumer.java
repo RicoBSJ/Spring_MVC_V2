@@ -35,13 +35,8 @@ public class UserAccountConsumer {
         HttpEntity<UserAccount> entity = new HttpEntity<>(userAccount, requestHeaders);
         try{
             restTemplate.exchange("http://localhost:8081/biblio-api/api/auth/signin", HttpMethod.POST, entity, Object.class);
-            System.out.println(restTemplate.toString());
         } catch(HttpClientErrorException e) {
-            System.out.println("---------------");
-            System.out.println(e.getStatusCode());
-            System.out.println("---------------");
-            System.out.println(e.toString());
-            System.out.println("---------------");
+            e.getResponseBodyAsString();
         }
         return restTemplate.exchange("http://localhost:8081/biblio-api/api/auth/signin", HttpMethod.POST, entity, JwtResponse.class);
     }
