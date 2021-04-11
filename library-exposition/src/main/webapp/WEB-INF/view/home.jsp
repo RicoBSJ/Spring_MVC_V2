@@ -34,6 +34,7 @@
             <th>Auteur</th>
             <th>Edition</th>
             <th>Date</th>
+            <th>Quantité</th>
         </tr>
         <c:forEach var="book" items="${books}">
             <tr class="table">
@@ -41,6 +42,7 @@
                 <td>${book.bookAuthor.firstName} ${book.bookAuthor.lastName}</td>
                 <td>${book.bookEdition.nameEdition}</td>
                 <td>${book.yearBook}</td>
+                <td>${book.quantity}</td>
             </tr>
         </c:forEach>
     </table>

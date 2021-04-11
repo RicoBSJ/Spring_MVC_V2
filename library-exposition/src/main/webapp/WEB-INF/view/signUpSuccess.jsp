@@ -32,10 +32,6 @@
             <a href="<c:url value="/"/>">Retour à l'accueil</a>
         </p>
         <br/>
-        <p>
-            <a href="<c:url value="/login"/>">Connexion</a>
-        </p>
-        <br/>
     </div>
 </div>
 </body>
