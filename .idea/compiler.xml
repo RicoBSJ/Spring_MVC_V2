@@ -17,7 +17,7 @@
       <module name="library-consumer" target="8" />
       <module name="library-exposition" target="1.8" />
       <module name="library-model" target="8" />
-      <module name="Projet_7_SPRING_MVC_V2" target="1.5" />
+      <module name="Projet_7_SPRING_MVC_V2" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
