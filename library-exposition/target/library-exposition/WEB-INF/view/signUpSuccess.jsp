@@ -29,9 +29,9 @@
         </p>
         <br/>
         <form:form action="/library_exposition_war_exploded/login" method="post">
-            <input class="nav-link"  type="submit" value="Connexion" />
+            <input class="nav-link"  type="submit" value="Vous pouvez vous connecter" />
         </form:form>
-        <br/>
+        <br/><br/>
         <p>
             <a href="<c:url value="/"/>">Retour à l'accueil</a>
         </p>

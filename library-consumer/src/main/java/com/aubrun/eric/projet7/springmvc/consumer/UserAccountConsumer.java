@@ -29,13 +29,10 @@ public class UserAccountConsumer {
     }
 
     public ResponseEntity<JwtResponse> login(UserAccount userAccount) {
-        HttpHeaders requestHeaders = new HttpHeaders();
-        requestHeaders.setContentType(MediaType.APPLICATION_JSON);
-        requestHeaders.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
-        HttpEntity<UserAccount> entity = new HttpEntity<>(userAccount, requestHeaders);
-        try{
+        HttpEntity<UserAccount> entity = new HttpEntity<>(userAccount);
+        try {
             restTemplate.exchange("http://localhost:8081/biblio-api/api/auth/signin", HttpMethod.POST, entity, Object.class);
-        } catch(HttpClientErrorException e) {
+        } catch (HttpClientErrorException e) {
             e.getResponseBodyAsString();
         }
         return restTemplate.exchange("http://localhost:8081/biblio-api/api/auth/signin", HttpMethod.POST, entity, JwtResponse.class);
