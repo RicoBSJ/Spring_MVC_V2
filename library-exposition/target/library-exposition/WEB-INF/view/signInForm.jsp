@@ -10,7 +10,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
 <div class="container">
-    <form:form modelAttribute="userAccount" method="post" action="/library_exposition_war_exploded/home/login">
+    <form:form modelAttribute="userAccount" method="post" action="/library_exposition_war_exploded/login">
         <br/>
         <p>Vous pouvez vous connecter via ce formulaire.</p>
         <br/>

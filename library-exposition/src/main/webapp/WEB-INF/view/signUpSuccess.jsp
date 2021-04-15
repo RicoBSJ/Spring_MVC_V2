@@ -28,6 +28,10 @@
             <a> ${userAccount.username} est bien inscrit</a>
         </p>
         <br/>
+        <form:form action="/library_exposition_war_exploded/login" method="post">
+            <input class="nav-link"  type="submit" value="Connexion" />
+        </form:form>
+        <br/>
         <p>
             <a href="<c:url value="/"/>">Retour à l'accueil</a>
         </p>

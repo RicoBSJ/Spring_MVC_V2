@@ -38,7 +38,7 @@ public class UserAccountController {
         return "../view/signUpForm";
     }
 
-    @PostMapping("/home/registration")
+    @PostMapping("/registration")
     public ModelAndView registrationUser(@ModelAttribute("userAccount") UserAccount userAccount) {
 
         UserAccount newUser = userAccountService.addUser(userAccount).getBody();
@@ -55,7 +55,7 @@ public class UserAccountController {
         return modelAndView;
     }
 
-    @PostMapping(value = "/home/login")
+    @PostMapping(value = "/login")
     public ModelAndView login(@ModelAttribute("userAccount") UserAccount userAccount, HttpSession session) {
         ResponseEntity<JwtResponse> result = userAccountService.login(userAccount);
         session.setAttribute("username", userAccount.getUsername());

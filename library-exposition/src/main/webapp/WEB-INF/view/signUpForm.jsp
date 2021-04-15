@@ -11,7 +11,7 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 
 <div class="container">
-    <form:form modelAttribute="userAccount" method="post" action="/library_exposition_war_exploded/home/registration">
+    <form:form modelAttribute="userAccount" method="post" action="/library_exposition_war_exploded/registration">
         <br/>
         <p>Vous pouvez vous inscrire via ce formulaire.</p>
         <br/>

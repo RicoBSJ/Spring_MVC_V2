@@ -31,7 +31,7 @@ public class SearchController {
         return "../include/searchBookForm";
     }
 
-    @PostMapping(value = "/home/search")
+    @PostMapping(value = "/search")
     private ModelAndView searchBookSubmit(@ModelAttribute("searchBook") SearchBook searchBook) {
         List<Book> result = bookService.searchBook(searchBook).getBody();
         ModelAndView modelAndView = new ModelAndView("home", "searchBook", new SearchBook());
