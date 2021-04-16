@@ -26,8 +26,6 @@
         <a href="<c:url value="/"/>">Retour à l'accueil</a>
     </p>
     <br/>
-    <%--<c:if test="${!empty sessionScope.userAccount.username}">--%>
-        <%--${sessionScope.userAccount.username == borrowing.userAccountBorrowing.username}--%>
     <table class="table">
         <tr>
             <th>Titre</th>
@@ -43,7 +41,7 @@
             <td>${borrowing.bookBorrowing.bookAuthor.firstName} ${borrowing.bookBorrowing.bookAuthor.lastName}</td>
             <td>${borrowing.endDate}</td>
             <td><c:if test="${!borrowing.renewal}">
-                <form:form modelAttribute="extendBorrowingForm" action="${pageContext.request.contextPath}/updateBorrowing" method="post">
+                <form:form modelAttribute="extendBorrowingForm" action="/library_exposition_war_exploded/updateBorrowing" method="post">
                     <input type="hidden" id="borrowingId" name="borrowingId" value="${borrowing.borrowingId}" />
                     <input type="submit" name="tag" value="Renouveler" />
                 </form:form>
@@ -55,7 +53,6 @@
         </tr>
         </c:forEach>
     </table>
-    <%--</c:if>--%>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
