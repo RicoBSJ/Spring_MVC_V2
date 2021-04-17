@@ -66,6 +66,15 @@ Les étapes de déploiement de l'application
 	- Le JDK sur https://www.oracle.com/fr/java/technologies/javase/javase-jdk8-downloads.html
 	- Apache Maven sur https://maven.apache.org/download.cgi (n'oubliez pas d'ajouter la variable d'environnement d'Apache au "Path")
 	- Hibernate sur https://sourceforge.net/projects/hibernate/files/hibernate-validator/6.1.6.Final/hibernate-validator-6.1.6.Final-dist.zip/download
+
+	2/Si vous ne l'avez pas déjà effectué, vous devez lancer pgAdmin4 :
+	
+	- Voici le chemin : /Library/PostgreSQL/12/
+	- Dans la base de données, créez un utilisateur "postgres", attribuez lui le mot de passe "postgres"
+	- Nul besoin de lancer un script de création de base de données car Hibernate se charge de le faire. 
+	Ceci étant, vous trouverez un dump dans " PBiblio_Api_03_Script_SQL_Creation_Base_De_Donnees.sql " que vous trouverez dans le package
+	- Pareillement pour le jeu de données, nul besoin d'exécuter le script car l'API contient un fichier " data.sql " se chargeant 
+	de l'opération à son lancement. Ceci étant, vous trouverez ce fichier "PBiblio_Api_04_Script_SQL_Jeu_De_Donnees.sql"
 	
 	3/A partir de votre IDE, veuillez cloner le front-end à l'adresse suivante :
 	
@@ -73,10 +82,18 @@ Les étapes de déploiement de l'application
 
 Le lancement de l'application
 
-	- A partir du Main situé dans la couche library-exposition, dans le package com.aubrun.eric.projet7, positionnez votre curseur devant " public class Main ", 
-	déclenchez l'ouverture du menu et cliquez sur " Run 'Main' "
-	- L'API démarrée, vous devez à présent cloner le sous-projet représentant le batch-end de l'application à l'adresse suivante : https://github.com/RicoBSJ/Spring_Batch.git
-	- Ouvrez votre navigateur Internet et tapez "http://localhost:8080/library_exposition_war_exploded/" pour lancer l'application
+	- Vous devez configurer le démarrage de l'application
+	- Allez, en haut et à droite, dans " Add Configuration ", cliquez dessus
+	- Une fenêtre s'ouvre intitulée " Run/Debug Configurations "
+	- Cliquez sur le signe + situé en haut et à gauche
+	- Sélectionnez " Tomcat Server Local "
+	- Cliquez sur l'onglet " Deployment "
+	- Cliquez sur le signe +
+	- Cliquez sur " Artifact "
+	- Cliquez sur " library-exposition:war exploded "
+	- Cliquez sur OK
+	- Vous pouvez à présent démarrée l'application
+	- L'application démarrée, vous devez à présent cloner le sous-projet représentant le batch-end de l'application à l'adresse suivante : https://github.com/RicoBSJ/Spring_Batch.git
 
 ## Auteur
 
